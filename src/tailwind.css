@@ -13,11 +13,11 @@ html {
 
 .featured {
   @apply bg-primary;
+  overflow: hidden;
 }
 
 .featured-title {
   @apply text-2xl font-bold text-white;
-  overflow: hidden;
 }
 
 .featured-post {
@@ -33,7 +33,7 @@ html {
 }
 
 .featured-post:not(:last-child) {
-  margin-right: 1rem;
+  margin-right: 2rem;
 }
 
 .title {

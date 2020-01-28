@@ -29,7 +29,7 @@
 <div class="featured">
   <div class="container p-8">
 	  <h2 class="title text-2xl md:text-3xl text-white">Featured Posts</h2>
-		<div class="flex justify-between">
+		<div class="flex justify-between overflow-hidden">
 			<a class="featured-post" href="/">
 				<div class="category">Basics</div>
 				<div class="title text-xl text-black">What is CBD? <br/> Getting Started with Basics</div>

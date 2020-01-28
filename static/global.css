@@ -56008,13 +56008,13 @@ html {
 
 .featured {
   background-color: #6D866D;
+  overflow: hidden;
 }
 
 .featured-title {
   font-size: 1.5rem;
   font-weight: 700;
   color: #fff;
-  overflow: hidden;
 }
 
 .featured-post {
@@ -56044,7 +56044,7 @@ html {
 }
 
 .featured-post:not(:last-child) {
-  margin-right: 1rem;
+  margin-right: 2rem;
 }
 
 .title {
