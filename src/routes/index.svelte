@@ -1,5 +1,5 @@
 <style>
-	h1, figure, p {
+	/* h1, figure, p {
 		text-align: center;
 		margin: 0 auto;
 	}
@@ -11,16 +11,6 @@
 		margin: 0 0 0.5em 0;
 	}
 
-	figure {
-		margin: 0 0 1em 0;
-	}
-
-	img {
-		width: 100%;
-		max-width: 400px;
-		margin: 0 0 1em 0;
-	}
-
 	p {
 		margin: 1em auto;
 	}
@@ -29,18 +19,62 @@
 		h1 {
 			font-size: 4em;
 		}
-	}
+	} */
 </style>
 
 <svelte:head>
-	<title>Sapper project template</title>
+	<title>CBD Space Blog</title>
 </svelte:head>
 
-<h1>Great success!</h1>
+<div class="featured">
+  <div class="container p-8">
+	  <h2 class="title text-2xl md:text-3xl text-white">Featured Posts</h2>
+		<div class="flex justify-between">
+			<a class="featured-post" href="/">
+				<div class="category">Basics</div>
+				<div class="title text-xl text-black">What is CBD? <br/> Getting Started with Basics</div>
+				<div class="meta">
+					<span class="date">23 January</span>
+					<span>&middot;</span>
+					<span class="time">5 min</span>
+				</div>
+			</a>
+			<a class="featured-post" href="/">
+				<div class="category">Basics</div>
+				<div class="title text-xl text-black">What is CBD? <br/> Getting Started with Basics</div>
+				<div class="meta">
+					<span class="date">23 January</span>
+					<span>&middot;</span>
+					<span class="time">5 min</span>
+				</div>
+			</a>
+			<a class="featured-post" href="/">
+				<div class="category">Basics</div>
+				<div class="title text-xl text-black">What is CBD? <br/> Getting Started with Basics</div>
+				<div class="meta">
+					<span class="date">23 January</span>
+					<span>&middot;</span>
+					<span class="time">5 min</span>
+				</div>
+			</a>
+		</div>		
+	</div>
+</div>
 
-<figure>
-	<img alt='Borat' src='great-success.png'>
-	<figcaption>HIGH FIVE!</figcaption>
-</figure>
-
-<p><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong></p>
+<div class="container p-8">
+  <h2 class="title text-primary">Latest Posts</h2>
+	<div class="flex">
+	  <div class="post">
+		  <div class="image"></div>
+			<div class="content">
+			  <div class="category">Basics</div>
+				<div class="title text-black">Benefits and Side Effects of Using CBD</div>
+				<div class="meta">
+				  <span class="date">20 January</span> 
+					<span>&middot;</span>
+					<span class="read">12 min</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
