@@ -1,0 +1,18 @@
+.swipe {
+  @apply .pl-4 .-ml-6 .-mr-4;
+  overflow: hidden;
+}
+
+.swipe-items-wrapper {
+  @apply .flex .justify-between .overflow-hidden;
+}
+
+.swipe-item {
+  @apply .flex-100 .px-2;
+  @screen sm {
+    @apply .flex-2;
+  }
+  @screen lg {
+    @apply .flex-1;
+  }
+}

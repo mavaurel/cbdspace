@@ -6,7 +6,7 @@
 </script>
 
 <style>
-	h1, p {
+	/* h1, p {
 		@apply mx-auto my-0;
 	}
 
@@ -24,7 +24,7 @@
 		h1 {
 			font-size: 4em;
 		}
-	}
+	} */
 </style>
 
 <svelte:head>
