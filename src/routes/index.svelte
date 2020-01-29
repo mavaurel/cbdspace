@@ -32,7 +32,7 @@
 		<div class="flex justify-between overflow-hidden -ml-2 -mr-4 sm:-mx-2">
 		  <div class="flex-100 sm:flex-2 lg:flex-1 px-2">
 				<a class="featured-post" href="/">
-				  <div class="content pr-6">
+				  <div class="content">
 					  <div class="category">Basics</div>
 						<div class="title text-xl text-black">What is CBD? <br/> Getting Started with Basics</div>
 						<div class="meta">
@@ -45,7 +45,7 @@
 			</div>
 			<div class="flex-100 sm:flex-2 lg:flex-1 px-2">
         <a class="featured-post" href="/">
-				  <div class="content pr-6">
+				  <div class="content">
 					  <div class="category">Basics</div>
 						<div class="title text-xl text-black">What is CBD? <br/> Getting Started with Basics</div>
 						<div class="meta">
@@ -58,7 +58,7 @@
 			</div>
 			<div class="flex-100 sm:flex-2 lg:flex-1 px-2">
         <a class="featured-post" href="/">
-				  <div class="content pr-6">
+				  <div class="content">
 					  <div class="category">Basics</div>
 						<div class="title text-xl text-black">What is CBD? <br/> Getting Started with Basics</div>
 						<div class="meta">

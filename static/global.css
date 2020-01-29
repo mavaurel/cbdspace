@@ -56099,30 +56099,28 @@ nav {
 
 .featured-post {
   background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /* flex-direction: column; */
+  /* justify-content: flex-end; */
+  border-radius: 4px;
+  min-height: 200px;
+  min-width: 288px;
+  /* 3:2 Aspect Ratio */
+  position: relative;
+  padding-top: 66.66%;
+}
+
+.featured-post .content {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  border-radius: 4px;
-  min-height: 200px;
-  min-width: 288px;
-  cursor: pointer;
-  position: relative;
-  padding-top: 66.66%; /* 3:2 Aspect Ratio */
-}
-
-.featured-post > * {
-  position: absolute;
 }
 
 .featured-post:not(:last-child) {

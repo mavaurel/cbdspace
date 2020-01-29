@@ -35,20 +35,25 @@ nav {
 }
 
 .featured-post {
-  @apply .bg-white .px-6 .py-4;
+  @apply .bg-white;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  /* flex-direction: column; */
+  /* justify-content: flex-end; */
   border-radius: 4px;
   min-height: 200px;
   min-width: 288px;
-  cursor: pointer;
+
+  /* 3:2 Aspect Ratio */
   position: relative;
-  padding-top: 66.66%; /* 3:2 Aspect Ratio */
+  padding-top: 66.66%;
 }
 
-.featured-post > * {
+.featured-post .content {
   position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  @apply .px-6 .py-4;
 }
 
 .featured-post:not(:last-child) {
