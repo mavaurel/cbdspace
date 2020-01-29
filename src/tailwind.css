@@ -35,19 +35,24 @@ nav {
 }
 
 .featured-post {
-  @apply .bg-white .px-6 .py-4 .mt-4;
+  @apply .bg-white .px-6 .py-4;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   border-radius: 4px;
-  min-height: 256px;
-  min-width: 256px;
-  flex: 0 0 30%;
+  min-height: 200px;
+  min-width: 288px;
   cursor: pointer;
+  position: relative;
+  padding-top: 66.66%; /* 3:2 Aspect Ratio */
+}
+
+.featured-post > * {
+  position: absolute;
 }
 
 .featured-post:not(:last-child) {
-  margin-right: 2rem;
+  margin-right: 1rem;
 }
 
 .title {

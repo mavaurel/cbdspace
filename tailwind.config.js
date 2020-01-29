@@ -14,6 +14,14 @@ module.exports = {
     },
     container: {
       center: true
+    },
+    flex: {
+      auto: "1 1 auto",
+      initial: "0 1 auto",
+      none: "none",
+      "1": "1 1 0%",
+      "2": "1 0 50%",
+      "100": "1 0 80%"
     }
   },
   variants: {},
