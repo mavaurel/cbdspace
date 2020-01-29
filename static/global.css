@@ -56002,6 +56002,26 @@ html {
   color: #4D4D4D;
 }
 
+.logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 230px;
+  width: 130px
+}
+
+@media (min-width: 640px) {
+
+.logo {
+    width: auto
+}
+  }
+
+nav {
+  /* padding: 1rem 2rem; */
+  min-height: 3.25rem;
+}
+
 /* 
   Featured Posts
 */

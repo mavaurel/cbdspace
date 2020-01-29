@@ -4,7 +4,21 @@
 @import "tailwindcss/screens";
 
 html {
-  @apply font-sans text-grey;
+  @apply .font-sans .text-grey;
+}
+
+.logo {
+  display: flex;
+  max-width: 230px;
+  width: 130px;
+  @screen sm {
+    @apply .w-auto;
+  }
+}
+
+nav {
+  /* padding: 1rem 2rem; */
+  min-height: 3.25rem;
 }
 
 /* 
@@ -12,16 +26,16 @@ html {
 */
 
 .featured {
-  @apply bg-primary;
+  @apply .bg-primary;
   overflow: hidden;
 }
 
 .featured-title {
-  @apply text-2xl font-bold text-white;
+  @apply .text-2xl .font-bold .text-white;
 }
 
 .featured-post {
-  @apply bg-white px-6 py-4 mt-4;
+  @apply .bg-white .px-6 .py-4 .mt-4;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -37,14 +51,14 @@ html {
 }
 
 .title {
-  @apply font-bold;
+  @apply .font-bold;
   line-height: 1.25;
 }
 
 .category {
-  @apply text-grey-light text-sm;
+  @apply .text-grey-light .text-sm;
   text-transform: uppercase;
 }
 .meta {
-  @apply text-grey-light text-sm;
+  @apply .text-grey-light .text-sm;
 }
