@@ -7,10 +7,11 @@ module.exports = {
     },
     colors: {
       ...defaultColors,
-      primary: "#6D866D",
+      primary: "#6d866d",
       black: "#2f2f2f",
-      grey: "#4D4D4D",
-      "grey-light": "#C4C1C1"
+      grey: "#4d4d4d",
+      "grey-light": "#c4c1c1",
+      "grey-dark": "#797979"
     },
     container: {
       center: true
@@ -21,7 +22,14 @@ module.exports = {
       none: "none",
       "1": "1 1 0%",
       "2": "1 0 50%",
-      "100": "1 0 80%"
+      "4": "1 0 25%",
+      "80": "1 0 80%",
+      "100": "1 0 100%"
+    },
+    maxWidth: {
+      "1/4": "25%",
+      "1/2": "50%",
+      "3/4": "75%"
     }
   },
   variants: {},

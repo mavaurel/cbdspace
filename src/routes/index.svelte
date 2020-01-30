@@ -32,13 +32,13 @@
 		img: "images/what_is_cbd-dark.jpg"
 	},
 	{
-		title: "What is CBD? </br> Getting Started with Basics",
+		title: "Methods Of Using CBD </br> How Do I Take CBD?",
 		category: "Basics",
 		date: "23 January",
 		img: "images/what_is_cbd-light.jpg"
 	},
 	{
-		title: "What is CBD? </br> Getting Started with Basics",
+		title: "Full Spectrum vs Isolated CBD? </br> What's The Difference",
 		category: "Basics",
 		date: "23 January",
 		img: "images/what_is_cbd-dark.jpg"
@@ -51,23 +51,23 @@
 </svelte:head>
 
 <!-- Featured Posts -->
-<div class="featured">
+<section class="featured">
   <div class="container px-4 py-8">
-	  <h2 class="featured-title title">Featured Posts</h2>
+	  <h2 class="title title-large text-white">Featured Posts</h2>
 		<Swipe>
 			{#each posts as post}
 				<SwipeItem>
 					<a class="featured-post" href="/">
-						<figure class="featured-image">
+						<figure class="featured-image image">
 							<img src={post.img} alt="">
 						</figure>
 						<div class="featured-content">
-							<div class="category">{post.category}</div>
+							<div class="meta uppercase">{post.category}</div>
 							<div class="title text-xl text-white">{@html post.title}</div>
 							<div class="meta">
 								<span class="date">{post.date}</span>
 								<span>&middot;</span>
-								<span class="time">5 min</span>
+								<span class="read">5 min</span>
 							</div>
 						</div>					
 					</a>
@@ -127,25 +127,33 @@
 			</div>	
 		</div>	 -->
 	</div>
-</div>
+</section>
 
 <!-- Latest Posts -->
-<div class="latest">
+<section class="latest">
 	<div class="container px-4 py-8">
-		<h2 class="title text-primary">Latest Posts</h2>
-		<div class="flex">
-			<div class="post">
-				<div class="image"></div>
-				<div class="content">
-					<div class="category">Basics</div>
-					<div class="title text-black">Benefits and Side Effects of Using CBD</div>
-					<div class="meta">
-						<span class="date">20 January</span> 
-						<span>&middot;</span>
-						<span class="read">12 min</span>
+		<h2 class="title title-large text-primary">Latest Posts</h2>
+		<div class="posts">
+		  {#each posts as post}
+				<div class="flex-100 mb-6">
+					<div class="flex">
+					  <div class="flex-4 mr-4 max-w-1/4 self-center">
+						  <a href="/">
+							  <figure class="image is-square">
+                  <img src={post.img} alt="">
+						    </figure>
+							</a>						  
+						</div>						
+						<div class="flex flex-col justify-between sm:justify-start">
+							<div class="text-sm text-grey-dark uppercase">{post.category}</div>
+							<a href="/" class="title text-black md:text-2xl">{@html post.title}</a>
+							<div class="text-sm text-grey-dark">
+								{post.date} &middot; 12 min
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
+			{/each}
 		</div>
 	</div>
-</div>
+</section>
