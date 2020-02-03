@@ -74,58 +74,6 @@
 				</SwipeItem>
 			{/each}
 		</Swipe>
-		<!-- <div class="featured-carousel">	
-			<div class="flex justify-between overflow-hidden">
-				<div class="flex-100 sm:flex-2 lg:flex-1 px-2">
-					<a class="featured-post" href="/">
-						<figure class="featured-image">
-							<img src="images/what_is_cbd-dark.jpg" alt="">
-						</figure>
-						<div class="featured-content">
-							<div class="category">Basics</div>
-							<div class="title text-xl text-white">What is CBD? <br/> Getting Started with Basics</div>
-							<div class="meta">
-								<span class="date">23 January</span>
-								<span>&middot;</span>
-								<span class="time">5 min</span>
-							</div>
-						</div>					
-					</a>
-				</div>
-				<div class="flex-100 sm:flex-2 lg:flex-1 px-2">
-					<a class="featured-post" href="/">
-						<figure class="featured-image">
-							<img src="images/what_is_cbd-light.jpg" alt="">
-						</figure>
-						<div class="featured-content">
-							<div class="category">Basics</div>
-							<div class="title text-xl text-white">What is CBD? <br/> Getting Started with Basics</div>
-							<div class="meta">
-								<span class="date">23 January</span>
-								<span>&middot;</span>
-								<span class="time">5 min</span>
-							</div>
-						</div>					
-					</a>
-				</div>
-				<div class="flex-100 sm:flex-2 lg:flex-1 px-2">
-					<a class="featured-post" href="/">
-						<figure class="featured-image">
-							<img src="images/what_is_cbd-dark.jpg" alt="">
-						</figure>
-						<div class="featured-content">
-							<div class="category">Basics</div>
-							<div class="title text-xl text-white">What is CBD? <br/> Getting Started with Basics</div>
-							<div class="meta">
-								<span class="date">23 January</span>
-								<span>&middot;</span>
-								<span class="time">5 min</span>
-							</div>
-						</div>					
-					</a>
-				</div>
-			</div>	
-		</div>	 -->
 	</div>
 </section>
 

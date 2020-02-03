@@ -1,6 +1,3 @@
-<script>
-</script>
-
-<div class="swipe-item">
+<div class="swipeable-item">
   <slot />
 </div>
