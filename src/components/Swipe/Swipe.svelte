@@ -81,7 +81,7 @@
     e && e.stopImmediatePropagation();
     e && e.stopPropagation();
     e && e.preventDefault();
-    let max = Math.floor(availableWidth * (items - 1) * 0.8 - availableWidth * 0.18);
+    let max = Math.floor(availableWidth * (items - 1) * 0.8 - availableWidth * 0.2);
     touching = false;
     x = null;
     // let swipe_threshold = 0.25;

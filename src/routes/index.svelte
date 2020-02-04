@@ -73,7 +73,7 @@
 						</figure>
 						<div class="featured-content">
 							<div class="meta uppercase">{post.category}</div>
-							<div class="title text-xl text-white">{@html post.title}</div>
+							<div class="title text-base sm:text-xl text-white">{@html post.title}</div>
 							<div class="meta">
 								<span class="date">{post.date}</span>
 								<span>&middot;</span>
