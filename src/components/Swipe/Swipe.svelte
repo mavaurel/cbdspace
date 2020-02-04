@@ -4,7 +4,7 @@
   const transitionDuration = 200;
 
   const mobileWidth = 640;
-  let windowWidth;
+  let windowWidth = 500;
 
   let swipeWrapper;
   let swipeHandler;
@@ -125,7 +125,6 @@
   }
 	 
 </script>
-<!-- style="width:{wrapperWidth}px;" -->
 
 <svelte:window bind:innerWidth={windowWidth}/>
 

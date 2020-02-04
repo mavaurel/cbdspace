@@ -23,8 +23,18 @@
 </style>
 
 <script>
-  import { Swipe, SwipeItem } from "../components/Swipe";
- const posts = [
+	import { onMount } from 'svelte';
+	//import { Swipe, SwipeItem } from "../components/Swipe";
+
+	let Swipe;
+	let SwipeItem;
+	
+	onMount(async () => {
+		const module = await import("../components/Swipe");
+	  ({Swipe, SwipeItem} = module);
+	});
+
+  const posts = [
 	{
 		title: "What is CBD? </br> Getting Started with Basics",
 		category: "Basics",
@@ -54,9 +64,9 @@
 <section class="featured">
   <div class="container px-4 py-8">
 	  <h2 class="title title-large text-white">Featured Posts</h2>
-		<Swipe>
+		<svelte:component this={Swipe}>
 			{#each posts as post}
-				<SwipeItem>
+				<svelte:component this={SwipeItem}>
 					<a class="featured-post" href="/">
 						<figure class="featured-image image">
 							<img src={post.img} alt="">
@@ -71,9 +81,9 @@
 							</div>
 						</div>					
 					</a>
-				</SwipeItem>
+				</svelte:component>
 			{/each}
-		</Swipe>
+		</svelte:component>
 	</div>
 </section>
 
