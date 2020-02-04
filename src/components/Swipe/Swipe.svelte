@@ -4,7 +4,7 @@
   const transitionDuration = 200;
 
   const mobileWidth = 640;
-  let windowWidth = 500;
+  let windowWidth;
 
   let swipeWrapper;
   let swipeHandler;
@@ -32,7 +32,8 @@
   let x;
 
   function update(){
-    availableWidth = swipeWrapper.offsetWidth;
+    // availableWidth = swipeWrapper.offsetWidth;
+    availableWidth = windowWidth;
     swipeWrapper.style.transform = 'translate3d(0, 0, 0)';
     diff = 0;
   }
@@ -80,15 +81,14 @@
     e && e.stopImmediatePropagation();
     e && e.stopPropagation();
     e && e.preventDefault();
-    let max = availableWidth * (items - 1) * 0.8 - availableWidth * 0.18;
+    let max = Math.floor(availableWidth * (items - 1) * 0.8 - availableWidth * 0.18);
     touching = false;
     x = null;
-    let swipe_threshold = 0.25;
+    // let swipe_threshold = 0.25;
     let d_max = (diff / max);
 
     let leftOffset = availableWidth * 0.1;
-    let rightOffset = availableWidth * (items - 1) * 0.8 - availableWidth * 0.1;
-
+    let rightOffset = Math.floor(availableWidth * (items - 1) * 0.8 - availableWidth * 0.1);
     // slide back for first item 
     if (diff <= leftOffset) {
       diff = 0;
@@ -102,7 +102,6 @@
       let _value = -diff;
       swipeWrapper.style.cssText = non_touchingTpl.replace(template, _value);    
     }
-
     posX = diff;
     window.removeEventListener('mousemove', moveHandler);
     window.removeEventListener('mouseup', endHandler);
