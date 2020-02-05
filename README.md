@@ -1,4 +1,5 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/751354f0-0c2a-4724-a509-1c0afd216a13/deploy-status)](https://app.netlify.com/sites/cbdspace/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/67c60ce9-51d6-4d32-83f7-27dd0b6a9719/deploy-status)](https://app.netlify.com/sites/sbdspace/deploys)
+
 
 # cbdspace
 for cbdspace blog
