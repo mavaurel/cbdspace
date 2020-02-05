@@ -30,7 +30,7 @@
 	let SwipeItem;
 	
 	onMount(async () => {
-		const module = await import("../components/Swipe");
+		const module = await import("../components/Swipe/module");
 	  ({Swipe, SwipeItem} = module);
 	});
 

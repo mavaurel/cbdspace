@@ -8,8 +8,8 @@ import config from "sapper/config/rollup.js";
 import pkg from "./package.json";
 import getPreprocessor from "svelte-preprocess";
 import postcss from "rollup-plugin-postcss";
-
 import path from "path";
+
 const mode = process.env.NODE_ENV;
 const dev = mode === "development";
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
@@ -20,6 +20,36 @@ const onwarn = (warning, onwarn) =>
   onwarn(warning);
 const dedupe = importee =>
   importee === "svelte" || importee.startsWith("svelte/");
+
+/**
+ * A Rollup plugin to generate a list of import dependencies for each entry
+ * point in the module graph. This is then used by the template to generate
+ * the necessary `<link rel="modulepreload">` tags.
+ * @return {Object}
+ */
+function modulepreloadPlugin() {
+  return {
+    name: "modulepreload",
+    generateBundle(options, bundle) {
+      // A mapping of entry chunk names to their full dependency list.
+      const modulepreloadMap = {};
+
+      // Loop through all the chunks to detect entries.
+      for (const [fileName, chunkInfo] of Object.entries(bundle)) {
+        console.log(chunkInfo.facadeModuleId);
+        if (chunkInfo.isEntry || chunkInfo.isDynamicEntry) {
+          modulepreloadMap[fileName] = [fileName, ...chunkInfo.dynamicImports];
+        }
+      }
+
+      this.emitFile({
+        type: "asset",
+        fileName: "modulepreload.json",
+        source: JSON.stringify(modulepreloadMap, null, 2)
+      });
+    }
+  };
+}
 
 const preprocess = getPreprocessor({
   transformers: {
@@ -49,7 +79,7 @@ export default {
         dedupe
       }),
       commonjs(),
-
+      modulepreloadPlugin(),
       legacy &&
         babel({
           extensions: [".js", ".mjs", ".html", ".svelte"],
