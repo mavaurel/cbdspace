@@ -1,10 +1,11 @@
 <script>
 	import Nav from '../components/Nav.svelte';
-
-//	export let segment;
+  export let segment;
 </script>
 
-<Nav/>
+{#if segment !== "Basics"}
+	<Nav {segment}/>
+{/if}
 
 <main>
 	<slot></slot>

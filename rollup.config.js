@@ -36,7 +36,7 @@ function modulepreloadPlugin() {
 
       // Loop through all the chunks to detect entries.
       for (const [fileName, chunkInfo] of Object.entries(bundle)) {
-        console.log(chunkInfo.facadeModuleId);
+        // console.log(chunkInfo.facadeModuleId);
         if (chunkInfo.isEntry || chunkInfo.isDynamicEntry) {
           modulepreloadMap[fileName] = [fileName, ...chunkInfo.dynamicImports];
         }

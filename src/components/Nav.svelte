@@ -1,5 +1,6 @@
 <script>
-	// export let segment;
+	export let segment;
+	console.log(segment);
 </script>
 
 <nav>

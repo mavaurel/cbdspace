@@ -1,10 +1,24 @@
-/* .swipe {
-  @apply .pl-4 .-ml-6 .-mr-4;
-  overflow: hidden;
-}
-*/
-
 .swipeable-slot-wrapper {
+  @apply .flex .justify-between;
+}
+
+.swipe-panel {
+  position: relative;
+  overflow: hidden;
+  @apply .pl-4 .-mr-4 .-ml-6;
+}
+
+.swipe-item-wrapper {
+  position: relative;
+  height: inherit;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.swipeable-items {
+  position: relative;
+  width: inherit;
+  height: inherit;
   @apply .flex .justify-between;
 }
 
@@ -18,32 +32,6 @@
   }
 }
 
-.swipe-panel {
-  position: relative;
-  /* height: var(--sv-swipe-panel-height, 100%);
-  width: var(--sv-swipe-panel-width, inherit); */
-  /* @apply .pl-4 .-ml-6 .-mr-4; */
-  /* height: 24vh; */
-  /* width: 100vw; */
-  overflow: hidden;
-  /* margin: 0 -1rem; */
-  @apply .pl-4 .-mr-4 .-ml-6;
-}
-
-.swipe-item-wrapper {
-  /* overflow: hidden; */
-  position: relative;
-  height: inherit;
-  z-index: var(--sv-swipe-panel-wrapper-index, 2);
-  pointer-events: none;
-}
-.swipeable-items {
-  position: relative;
-  width: inherit;
-  height: inherit;
-
-  @apply .flex .justify-between;
-}
 .swipe-handler {
   width: 100%;
   position: absolute;
@@ -52,14 +40,4 @@
   left: 0;
   right: 0;
   background: rgba(0, 0, 0, 0);
-}
-
-.swipeable-item {
-  /* position: absolute; */
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  transition-timing-function: ease-out;
-  /* width: 80%; */
 }

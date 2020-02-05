@@ -3,7 +3,8 @@ const { colors: defaultColors } = require("tailwindcss/defaultTheme");
 module.exports = {
   theme: {
     fontFamily: {
-      sans: ["'Roboto'", "sans-serif"]
+      sans: ["'Roboto'", "sans-serif"],
+      secondary: ["'Merriweather'", "sans-serif"]
     },
     colors: {
       ...defaultColors,
