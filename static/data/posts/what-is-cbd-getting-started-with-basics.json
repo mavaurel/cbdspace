@@ -1,6 +1,6 @@
 {
   "slug": "what_is_cbd",
-  "featuredImage": "/images/what_is_cbd-dark.jpg",
+  "main_image": "/images/what_is_cbd-dark.jpg",
   "featured": true,
   "date": "2020-02-05T15:20:37.836Z",
   "status": "publish",
@@ -11,7 +11,7 @@
   ],
   "seo": {
     "title": "What is CBD",
-    "metaDesc": "Explore and understand the whole new world of CBD",
-    "focuskw": "CBD, basics"
+    "description": "Explore and understand the whole new world of CBD",
+    "keywords": "CBD, basics"
   }
 }
