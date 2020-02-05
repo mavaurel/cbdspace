@@ -76,8 +76,8 @@ collections:
           fields:
             [
               { label: Title, name: title, widget: string },
-              { label: Description, name: metaDesc, widget: text },
-              { label: Keywords, name: focuskw, widget: text },
+              { label: Description, name: description, widget: text },
+              { label: Keywords, name: keywords, widget: text },
             ],
         }
       - { label: "Publish Date", name: "date", widget: "datetime" }
