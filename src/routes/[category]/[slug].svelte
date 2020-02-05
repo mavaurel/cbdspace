@@ -49,19 +49,41 @@
 		border-radius: unset;
   }
 }
+
+	.content :global(h2) {
+		@apply text-black text-2xl py-4 font-bold;
+	}
+	.content :global(pre) {
+		background-color: #f9f9f9;
+		box-shadow: inset 1px 1px 5px rgba(0,0,0,0.05);
+		padding: 0.5em;
+		border-radius: 2px;
+		overflow-x: auto;
+	}
+	.content :global(pre) :global(code) {
+		background-color: transparent;
+		padding: 0;
+	}
+	.content :global(ul) {
+		line-height: 1.5;
+		@apply list-inside list-disc py-4;
+	}
+	.content :global(li) {
+		margin: 0 0 0.5em 0;
+	}
 </style>
 
 <svelte:head>
 	<title>{post.title}</title>
 </svelte:head>
 
-<section class="header" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 50%), url({post.img})">
+<section class="header" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 50%), url({post.image})">
 	<div class="header-inner">
 	  <div class="container px-4 pt-8 pb-12">
 			<div class="text-sm font-bold text-primary uppercase">{post.category}</div>
 			<h1 class="title text-4xl text-white">{@html post.title}</h1>
 			<div class="text-sm text-grey-light">
-				{post.date} &middot; 12 min
+					{post.printDate} &middot; {post.printReadingTime}
 			</div> 
 		</div>
 	</div> 

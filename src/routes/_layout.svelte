@@ -3,9 +3,7 @@
   export let segment;
 </script>
 
-{#if segment !== "Basics"}
-	<Nav {segment}/>
-{/if}
+<Nav {segment}/>
 
 <main>
 	<slot></slot>

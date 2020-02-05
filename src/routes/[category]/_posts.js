@@ -1,81 +1,74 @@
-// Ordinarily, you'd generate this data from markdown files in your
-// repo, or fetch them from a database of some kind. But in order to
-// avoid unnecessary dependencies in the starter template, and in the
-// service of obviousness, we're just going to leave it here.
+import fs from "fs";
+import path from "path";
+import marked from "marked";
+// import matter from "gray-matter";
+import formatDate from "date-fns/format";
+import readingTime from "reading-time";
 
-// This file is called `_posts.js` rather than `posts.js`, because
-// we don't want to create an `/blog/posts` route — the leading
-// underscore tells Sapper not to do that.
+const cwd = process.cwd();
+const POSTS_DIR = path.join(cwd, "static/data/posts/");
 
-const posts = [
-  {
-    title: "What is CBD? </br> Getting Started with Basics",
-    slug: "what-is-sapper",
-    category: "basics",
-    img: "images/what_is_cbd-dark.jpg",
-    date: "23 January",
-    html: `<h2 class="title mb-6">All in all, what is CBD?</h2> CBD stands short for cannabidiol, a chemical compound from cannabis sativa plant, also known as marijuana or hemp. Probably you’ve heard of its cousin, delta-9-tetrahydrocannabinol, or THC, which is the major active source in marijuana. The main difference between these two is the fact, that CBD is not psychoactive at all, which gives it a large amount of therapeutic opportunities. All in all, what is CBD?</h2> CBD stands short for cannabidiol, a chemical compound from cannabis sativa plant, also known as marijuana or hemp. Probably you’ve heard of its cousin, delta-9-tetrahydrocannabinol, or THC, which is the major active source in marijuana. The main difference between these two is the fact, that CBD is not psychoactive at all, which gives it a large amount of therapeutic opportunities.All in all, what is CBD?</h2> CBD stands short for cannabidiol, a chemical compound from cannabis sativa plant, also known as marijuana or hemp. Probably you’ve heard of its cousin, delta-9-tetrahydrocannabinol, or THC, which is the major active source in marijuana. The main difference between these two is the fact, that CBD is not psychoactive at all, which gives it a large amount of therapeutic opportunities.	`
-  },
+const renderer = new marked.Renderer();
+const linkRenderer = renderer.link;
+renderer.link = (href, title, text) => {
+  const html = linkRenderer.call(renderer, href, title, text);
 
-  {
-    title: "How to use Sapper",
-    slug: "how-to-use-sapper",
-    category: "Basics",
-    date: "23 January",
-    html: `
-			<h2>Step one</h2>
-			<p>Create a new project, using <a href='https://github.com/Rich-Harris/degit'>degit</a>:</p>
-
-			<pre><code>npx degit "sveltejs/sapper-template#rollup" my-app
-			cd my-app
-			npm install # or yarn!
-			npm run dev
-			</code></pre>
-
-			<h2>Step two</h2>
-			<p>Go to <a href='http://localhost:3000'>localhost:3000</a>. Open <code>my-app</code> in your editor. Edit the files in the <code>src/routes</code> directory or add new ones.</p>
-
-			<h2>Step three</h2>
-			<p>...</p>
-
-			<h2>Step four</h2>
-			<p>Resist overdone joke formats.</p>
-		`
-  },
-
-  {
-    title: "Why the name?",
-    slug: "why-the-name",
-    html: `
-			<p>In war, the soldiers who build bridges, repair roads, clear minefields and conduct demolitions — all under combat conditions — are known as <em>sappers</em>.</p>
-
-			<p>For web developers, the stakes are generally lower than those for combat engineers. But we face our own hostile environment: underpowered devices, poor network connections, and the complexity inherent in front-end engineering. Sapper, which is short for <strong>S</strong>velte <strong>app</strong> mak<strong>er</strong>, is your courageous and dutiful ally.</p>
-		`
-  },
-
-  {
-    title: "How is Sapper different from Next.js?",
-    slug: "how-is-sapper-different-from-next",
-    html: `
-			<p><a href='https://github.com/zeit/next.js'>Next.js</a> is a React framework from <a href='https://zeit.co'>Zeit</a>, and is the inspiration for Sapper. There are a few notable differences, however:</p>
-
-			<ul>
-				<li>It's powered by <a href='https://svelte.dev'>Svelte</a> instead of React, so it's faster and your apps are smaller</li>
-				<li>Instead of route masking, we encode route parameters in filenames. For example, the page you're looking at right now is <code>src/routes/blog/[slug].html</code></li>
-				<li>As well as pages (Svelte components, which render on server or client), you can create <em>server routes</em> in your <code>routes</code> directory. These are just <code>.js</code> files that export functions corresponding to HTTP methods, and receive Express <code>request</code> and <code>response</code> objects as arguments. This makes it very easy to, for example, add a JSON API such as the one <a href='blog/how-is-sapper-different-from-next.json'>powering this very page</a></li>
-				<li>Links are just <code>&lt;a&gt;</code> elements, rather than framework-specific <code>&lt;Link&gt;</code> components. That means, for example, that <a href='blog/how-can-i-get-involved'>this link right here</a>, despite being inside a blob of HTML, works with the router as you'd expect.</li>
-			</ul>
-		`
-  },
-
-  {
-    title: "How can I get involved?",
-    slug: "how-can-i-get-involved",
-    html: `
-			<p>We're so glad you asked! Come on over to the <a href='https://github.com/sveltejs/svelte'>Svelte</a> and <a href='https://github.com/sveltejs/sapper'>Sapper</a> repos, and join us in the <a href='https://svelte.dev/chat'>Discord chatroom</a>. Everyone is welcome, especially you!</p>
-		`
+  if (href.indexOf("/") === 0) {
+    // Do not open internal links on new tab
+    return html;
+  } else if (href.indexOf("#") === 0) {
+    // Handle hash links to internal elements
+    const html = linkRenderer.call(renderer, "javascript:;", title, text);
+    return html.replace(
+      /^<a /,
+      `<a onclick="document.location.hash='${href.substr(1)}';" `
+    );
   }
-];
+
+  return html.replace(/^<a /, '<a target="_blank" rel="nofollow" ');
+};
+
+// renderer.code = (code, language) => {
+//   const parser = prism.languages[language] || prism.languages.html
+//   const highlighted = prism.highlight(code, parser, language)
+//   return `<pre class="language-${language}"><code class="language-${language}">${highlighted}</code></pre>`
+// }
+
+marked.setOptions({ headerIds: false, ...renderer });
+
+const posts = fs.readdirSync(POSTS_DIR).map(fileName => {
+  const data = fs.readFileSync(path.join(POSTS_DIR, fileName), "utf8");
+  const fileJson = JSON.parse(data);
+  const { title, content, date, categories, featured, image } = fileJson;
+
+  const slug = fileName.split(".")[0];
+  const html = marked(content);
+  const category = categories[0].toLowerCase();
+  const readingStats = readingTime(content);
+  const printReadingTime = readingStats.text.replace("read", "");
+  const printDate = formatDate(new Date(date), "d LLLL");
+
+  return {
+    title,
+    category,
+    featured,
+    image,
+    slug,
+    html,
+    date,
+    printDate,
+    printReadingTime
+  };
+});
+
+posts.sort((a, b) => {
+  const dateA = new Date(a.date);
+  const dateB = new Date(b.date);
+
+  if (dateA > dateB) return -1;
+  if (dateA < dateB) return 1;
+  return 0;
+});
 
 posts.forEach(post => {
   post.html = post.html.replace(/^\t{3}/gm, "");

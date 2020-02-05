@@ -19,7 +19,7 @@
   position: relative;
   width: inherit;
   height: inherit;
-  @apply .flex .justify-between;
+  @apply .flex;
 }
 
 .swipeable-item {
@@ -28,7 +28,7 @@
     @apply .flex-2;
   }
   @screen lg {
-    @apply .flex-1;
+    @apply .flex-3;
   }
 }
 
