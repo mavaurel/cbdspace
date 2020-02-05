@@ -59,7 +59,7 @@ collections:
           options: ["publish", "draft"],
           default: "publish",
         }
-      - { label: Main image, name: main_image, widget: image }
+      - { label: Image, name: image, widget: image }
       # - {
       #     label: "Preview",
       #     name: "preview",
