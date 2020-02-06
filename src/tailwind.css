@@ -44,8 +44,10 @@ nav {
 }
 
 main {
-  position: relative;
+  /* position: relative; */
   box-sizing: border-box;
+  position: absolute;
+  width: 100%;
 }
 
 .overlay {
@@ -116,6 +118,7 @@ main {
 
 .featured {
   @apply .bg-primary;
+  min-height: 35vh;
 }
 
 .featured-post {

@@ -2,7 +2,6 @@
 	import { onMount, onDestroy } from 'svelte';
 
   const transitionDuration = 200;
-
   const mobileWidth = 640;
   let windowWidth;
 
@@ -122,7 +121,6 @@
     window.addEventListener('touchmove', moveHandler);
     window.addEventListener('touchend', endHandler);
   }
-	 
 </script>
 
 <svelte:window bind:innerWidth={windowWidth}/>

@@ -1,21 +1,3 @@
-<script context="module">
-	export async function preload({ params, query }) {
-		// the `slug` parameter is available because
-		// this file is called [slug].svelte
-		const res = await this.fetch(`${params.category}/${params.slug}.json`);
-		const data = await res.json();
-
-		if (res.status === 200) {
-			return { post: data };
-		} else {
-			this.error(res.status, data.message);
-		}
-	}
-</script>
-
-<script>
-	export let post;
-</script>
 
 <style>
 .header {
@@ -69,9 +51,30 @@
 	margin: 0 0 0.5em 0;
 }
 .content :global(a) {
-	text-decoration: underline;
+	@apply text-grey-light;
 }
 </style>
+
+<script context="module">
+	export async function preload({ params, query }) {
+		// the `slug` parameter is available because
+		// this file is called [slug].svelte
+		const res = await this.fetch(`${params.category}/${params.slug}.json`);
+		const data = await res.json();
+
+		if (res.status === 200) {
+			return { post: data };
+		} else {
+			this.error(res.status, data.message);
+		}
+	}
+</script>
+
+<script>
+	import { send, receive } from '../../helpers/crossfade.js';
+	export let post;
+</script>
+
 
 <svelte:head>
 	<title>{post.title}</title>
@@ -83,7 +86,7 @@
 	<div class="header-inner">
 	  <div class="container px-4 pt-8 pb-12">
 			<div class="text-sm font-bold text-primary uppercase">{post.category}</div>
-			<h1 class="title text-4xl text-white">{@html post.title}</h1>
+			<h1 class="title text-4xl text-white" >{@html post.title}</h1>
 			<div class="text-sm text-grey-light">
 					{post.printDate} &middot; {post.printReadingTime}
 			</div> 

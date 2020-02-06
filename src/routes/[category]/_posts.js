@@ -19,11 +19,14 @@ renderer.link = (href, title, text) => {
     const html = linkRenderer.call(renderer, "javascript:;", title, text);
     return html.replace(
       /^<a /,
-      `<a onclick="document.location.hash='${href.substr(1)}';" `
+      `<a class="inner" onclick="document.location.hash='${href.substr(1)}';" `
     );
   }
 
-  return html.replace(/^<a /, '<a target="_blank" rel="nofollow" ');
+  return html.replace(
+    /^<a /,
+    '<a class="outer" target="_blank" rel="nofollow" '
+  );
 };
 
 // renderer.code = (code, language) => {

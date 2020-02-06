@@ -8,6 +8,7 @@
 
 <script>
 	import { onMount } from 'svelte';
+	import { send, receive } from '../helpers/crossfade.js';
 	export let posts;
 	//import { Swipe, SwipeItem } from "../components/Swipe";
 
@@ -18,6 +19,7 @@
 		const module = await import("../components/Swipe/module");
 	  ({Swipe, SwipeItem} = module);
 	});
+
 </script>
 
 <svelte:head>
@@ -29,9 +31,8 @@
   <div class="container px-4 py-8">
 	  <h2 class="title title-large text-white">Featured Posts</h2>
 		<svelte:component this={Swipe}>
-			{#each posts as post}
-			  {#if post.featured}				
-					<svelte:component this={SwipeItem}>
+			{#each posts.filter(p => p.featured) as post}
+					<svelte:component this={SwipeItem} link="{post.category}/{post.slug}">
 						<a class="featured-post" href="{post.category}/{post.slug}" rel=prefetch>
 							<figure class="featured-image image overlay">
 								<img src="{post.image}" alt="">
@@ -45,7 +46,6 @@
 							</div>					
 						</a>
 					</svelte:component>
-			  {/if}
 			{/each}
 		</svelte:component>
 	</div>
@@ -54,14 +54,14 @@
 <!-- Latest Posts -->
 <section class="latest">
 	<div class="container px-4 py-8">
-		<h2 class="title title-large text-primary">Latest Posts</h2>
+		<h2 class="title title-large text-primary">Latest Posts</h2>		
 		<div class="posts">
 		  {#each posts as post}
-				<div class="flex-100 mb-6">
+				<div class="flex-100 mb-6" >
 					<div class="flex">
 					  <div class="flex-4 mr-4 max-w-1/4 self-center">
 						  <a href="{post.category}/{post.slug}" rel=prefetch>
-							  <figure class="image is-square">
+							  <figure class="image is-square">							
                   <img src={post.image} alt="">
 						    </figure>
 							</a>						  
