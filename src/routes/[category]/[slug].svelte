@@ -112,7 +112,21 @@
 
 <section class="content">
   <div class="container px-4 py-8">
-  	{@html post.html}
+	<ul itemscope="" itemtype="http://schema.org/BreadcrumbList">
+		<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+			<a href="{URL}" itemprop="item">
+				<span itemprop="name">Home</span>
+			</a>
+			<meta itemprop="position" content="1">
+		</li>
+		<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+			<a href="{URL}/{post.category}/{post.slug}" itemprop="item">
+				<span itemprop="name">{post.title}</span>
+			</a>
+			<meta itemprop="position" content="2">
+		</li>
+	</ul>
+	  <div class="post">{@html post.html}</div>  
 	</div>
 </section>
 
