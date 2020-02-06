@@ -59,14 +59,7 @@ collections:
           options: ["publish", "draft"],
           default: "publish",
         }
-      - { label: Image, name: image, widget: image }
-      # - {
-      #     label: "Preview",
-      #     name: "preview",
-      #     widget: "markdown",
-      #     hint: "NOTE: If no preview, it will be taken from post body. From first <p>-tag or first 400 symbols.",
-      #     required: false,
-      #   }
+      - { label: "Image", name: "image", widget: image }
       - { label: "Body", name: "content", widget: "markdown" }
       # hint: "NOTE: If no preview, text for preview will be taken from this text. From first <p>-tag or first 400 symbols.",
       - {

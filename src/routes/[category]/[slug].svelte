@@ -30,14 +30,12 @@
     padding-bottom: 0;
   }
 }
-
 .header-inner {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
 }
-
 .content {
 	position: relative;	
 	z-index: 2;
@@ -49,31 +47,30 @@
 		border-radius: unset;
   }
 }
-
-	.content :global(h2) {
-		@apply text-black text-2xl py-4 font-bold;
-	}
-	.content :global(pre) {
-		background-color: #f9f9f9;
-		box-shadow: inset 1px 1px 5px rgba(0,0,0,0.05);
-		padding: 0.5em;
-		border-radius: 2px;
-		overflow-x: auto;
-	}
-	.content :global(pre) :global(code) {
-		background-color: transparent;
-		padding: 0;
-	}
-	.content :global(ul) {
-		line-height: 1.5;
-		@apply list-inside list-disc py-4;
-	}
-	.content :global(li) {
-		margin: 0 0 0.5em 0;
-	}
-	.content :global(a) {
-		text-decoration: underline;
-	}
+.content :global(h2) {
+	@apply text-black text-2xl py-4 font-bold;
+}
+.content :global(pre) {
+	background-color: #f9f9f9;
+	box-shadow: inset 1px 1px 5px rgba(0,0,0,0.05);
+	padding: 0.5em;
+	border-radius: 2px;
+	overflow-x: auto;
+}
+.content :global(pre) :global(code) {
+	background-color: transparent;
+	padding: 0;
+}
+.content :global(ul) {
+	line-height: 1.5;
+	@apply list-inside list-disc py-4;
+}
+.content :global(li) {
+	margin: 0 0 0.5em 0;
+}
+.content :global(a) {
+	text-decoration: underline;
+}
 </style>
 
 <svelte:head>
