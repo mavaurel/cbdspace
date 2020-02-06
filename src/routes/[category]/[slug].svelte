@@ -2,7 +2,7 @@
 	export async function preload({ params, query }) {
 		// the `slug` parameter is available because
 		// this file is called [slug].svelte
-		const res = await this.fetch(`blog/${params.slug}.json`);
+		const res = await this.fetch(`${params.category}/${params.slug}.json`);
 		const data = await res.json();
 
 		if (res.status === 200) {
@@ -23,7 +23,7 @@
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: 30vh;
+  min-height: 35vh;
   /* 1:1 Aspect Ratio on sm screen ( < 640px )*/
   padding-bottom: 100%;
   @screen sm {
@@ -71,10 +71,15 @@
 	.content :global(li) {
 		margin: 0 0 0.5em 0;
 	}
+	.content :global(a) {
+		text-decoration: underline;
+	}
 </style>
 
 <svelte:head>
 	<title>{post.title}</title>
+  <meta name="description" content={post.seo.description}>
+  <meta name="keywords" content={post.seo.keywords}>
 </svelte:head>
 
 <section class="header" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 50%), url({post.image})">

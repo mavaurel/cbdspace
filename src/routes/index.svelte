@@ -18,30 +18,6 @@
 		const module = await import("../components/Swipe/module");
 	  ({Swipe, SwipeItem} = module);
 	});
-
-//   const posts = [
-// 	{
-// 		title: "What is CBD? </br> Getting Started with Basics",
-// 		category: "Basics",
-// 		date: "23 January",
-// 		slug:	"what-is-sapper",
-// 		img: "images/what_is_cbd-dark.jpg"
-// 	},
-// 	{
-// 		title: "Methods Of Using CBD </br> How Do I Take CBD?",
-// 		category: "Basics",
-// 		date: "23 January",
-// 		slug:	"what-is-sapper",
-// 		img: "images/what_is_cbd-light.jpg"
-// 	},
-// 	{
-// 		title: "Full Spectrum vs Isolated CBD? </br> What's The Difference",
-// 		category: "Basics",
-// 		date: "23 January",
-// 		slug:	"what-is-sapper",
-// 		img: "images/what_is_cbd-dark.jpg"
-// 	}
-//  ];
 </script>
 
 <svelte:head>

@@ -1,7 +1,6 @@
 import fs from "fs";
 import path from "path";
 import marked from "marked";
-// import matter from "gray-matter";
 import formatDate from "date-fns/format";
 import readingTime from "reading-time";
 
@@ -12,7 +11,6 @@ const renderer = new marked.Renderer();
 const linkRenderer = renderer.link;
 renderer.link = (href, title, text) => {
   const html = linkRenderer.call(renderer, href, title, text);
-
   if (href.indexOf("/") === 0) {
     // Do not open internal links on new tab
     return html;
@@ -34,12 +32,12 @@ renderer.link = (href, title, text) => {
 //   return `<pre class="language-${language}"><code class="language-${language}">${highlighted}</code></pre>`
 // }
 
-marked.setOptions({ headerIds: false, ...renderer });
+marked.setOptions({ headerIds: false, renderer });
 
 const posts = fs.readdirSync(POSTS_DIR).map(fileName => {
   const data = fs.readFileSync(path.join(POSTS_DIR, fileName), "utf8");
   const fileJson = JSON.parse(data);
-  const { title, content, date, categories, featured, image } = fileJson;
+  const { title, content, date, categories, featured, image, seo } = fileJson;
 
   const slug = fileName.split(".")[0];
   const html = marked(content);
@@ -50,6 +48,7 @@ const posts = fs.readdirSync(POSTS_DIR).map(fileName => {
 
   return {
     title,
+    seo,
     category,
     featured,
     image,
