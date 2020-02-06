@@ -80,7 +80,6 @@ collections:
       preview: false
     label: "Settings"
     extension: json
-    folder: "static/data/settings"
     files:
       - file: "static/data/settings/seo.json"
         label: "Seo"

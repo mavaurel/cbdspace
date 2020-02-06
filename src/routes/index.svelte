@@ -19,11 +19,35 @@
 		const module = await import("../components/Swipe/module");
 	  ({Swipe, SwipeItem} = module);
 	});
-
+  
+	// Meta tags
+	const URL = "https://cbdspace.io";
+	const title = "CBD Space Blog"
+	const description = "description";
+	const keywords = "keywords";
+	const image = "/images/";
 </script>
 
 <svelte:head>
-	<title>CBD Space Blog</title>
+	<title>{title}</title>
+  <meta name="description" content={description}>
+  <meta name="keywords" content={keywords}>
+	<!-- Open Graph | Facebook-->
+	<meta property="og:type" content="Blog">
+	<meta property="og:title" content={title}>
+	<meta property="og:url" content={URL}>
+	<meta property="og:image" content={URL}{image}>
+	<meta property="og:description" content={description}>
+
+	<meta itemprop="name" content={title}>
+	<meta itemprop="thumbnailUrl" content={URL}{image}>
+	<meta itemproperty="description" content={description}>
+	<!-- Twitter-->
+	<meta property="twitter:card" content="summary">
+	<meta property="twitter:url" content={URL}>
+	<meta property="twitter:title" content={title}>
+	<meta property="twitter:description" content={description}>
+	<meta property="twitter:image" content={URL}{image}>
 </svelte:head>
 
 <!-- Featured Posts -->

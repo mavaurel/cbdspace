@@ -73,6 +73,7 @@
 <script>
 	import { send, receive } from '../../helpers/crossfade.js';
 	export let post;
+	const URL = "https://cbdspace.io";
 </script>
 
 
@@ -80,6 +81,21 @@
 	<title>{post.title}</title>
   <meta name="description" content={post.seo.description}>
   <meta name="keywords" content={post.seo.keywords}>
+	<!-- Open Graph | Facebook-->
+	<meta property="og:title" content="{post.title}| CBD Space Blog" />
+	<meta property="og:type" content="Blog" />
+	<meta property="og:url" content="{URL}/{post.category}/{post.slug}" />
+	<meta property="og:image" content="{URL}{post.image}" />
+	<meta property="og:description" content={post.seo.description}>
+	<meta itemprop="name" content="{post.title}| CBD Space Blog" />
+	<meta itemprop="thumbnailUrl" content="{URL}{post.image}" />
+	<meta itemproperty="description" content={post.seo.description}>
+	<!-- Twitter-->
+	<meta property="twitter:card" content="summary">
+	<meta property="twitter:url" content="{URL}/{post.category}/{post.slug}" />
+	<meta property="twitter:title" content="{post.title}| CBD Space Blog" />
+	<meta property="twitter:description" content={post.seo.description}>
+	<meta property="twitter:image" content="{URL}{post.image}" />
 </svelte:head>
 
 <section class="header" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 50%), url({post.image})">
