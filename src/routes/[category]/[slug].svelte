@@ -43,7 +43,7 @@
 	background-color: transparent;
 	padding: 0;
 }
-.content :global(ul) {
+.content :global(ul:not(.breadcrumb)) {
 	line-height: 1.5;
 	@apply list-inside list-disc py-4;
 }
@@ -52,6 +52,19 @@
 }
 .content :global(a) {
 	@apply text-grey-light;
+}
+
+ul.breadcrumb {
+	display: flex;
+	@apply text-sm pb-6;
+}
+ul.breadcrumb li:not(:last-child):after {
+	content: "/";
+	@apply px-2;
+}
+ul.breadcrumb li:last-child a {
+	pointer-events: none;
+	@apply text-grey-dark;
 }
 </style>
 
@@ -112,14 +125,15 @@
 
 <section class="content">
   <div class="container px-4 py-8">
-	<ul itemscope="" itemtype="http://schema.org/BreadcrumbList">
-		<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+	<!-- Schema Breadcrumb -->
+	<ul class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+		<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
 			<a href="{URL}" itemprop="item">
 				<span itemprop="name">Home</span>
 			</a>
 			<meta itemprop="position" content="1">
 		</li>
-		<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+		<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
 			<a href="{URL}/{post.category}/{post.slug}" itemprop="item">
 				<span itemprop="name">{post.title}</span>
 			</a>
