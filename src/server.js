@@ -2,9 +2,10 @@ import sirv from "sirv";
 import polka from "polka";
 import compression from "compression";
 import * as sapper from "@sapper/server";
-import { src_dir } from "@sapper/internal/manifest-server";
-import fs from "fs";
+// import { build_dir, src_dir, manifest } from "@sapper/internal/manifest-server";
+// import fs from "fs";
 // import replace from "replace-in-file";
+import "./sitemap.js";
 import "./tailwind.css";
 
 const { PORT, NODE_ENV } = process.env;
