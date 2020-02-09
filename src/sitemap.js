@@ -1,12 +1,13 @@
 import fs from "fs";
 import posts from "./routes/[category]/_posts.js";
-import { build_dir } from "@sapper/internal/manifest-server";
+import { dev } from "@sapper/internal/manifest-server";
 
 const BASE_URL = "https://cbdspace.io";
-const ROUTES = "src/routes/";
+const ROUTES_DIR = "src/routes/";
+const EXPORT_DIR = dev ? "static/" : "__sapper__/export/";
 const pages = [];
 
-fs.readdirSync(ROUTES).forEach(file => {
+fs.readdirSync(ROUTES_DIR).forEach(file => {
   file = file.split(".")[0];
   if (file.charAt(0) !== "_" && file.charAt(0) !== "[" && file !== "index") {
     pages.push(file);
@@ -28,7 +29,7 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8" ?>
       .join("\n")}
   </urlset>`;
 
-fs.writeFile(build_dir + "/sitemap.xml", sitemap, err => {
+fs.writeFile(EXPORT_DIR + "sitemap.xml", sitemap, err => {
   if (err) throw err;
 });
 
