@@ -1,9 +1,9 @@
 import fs from "fs";
 import posts from "./routes/[category]/_posts.js";
+import { build_dir } from "@sapper/internal/manifest-server";
 
 const BASE_URL = "https://cbdspace.io";
 const ROUTES = "src/routes/";
-const STATIC = "static/";
 const pages = [];
 
 fs.readdirSync(ROUTES).forEach(file => {
@@ -28,7 +28,7 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8" ?>
       .join("\n")}
   </urlset>`;
 
-fs.writeFile(STATIC + "sitemap.xml", sitemap, err => {
+fs.writeFile(build_dir + "/sitemap.xml", sitemap, err => {
   if (err) throw err;
 });
 
