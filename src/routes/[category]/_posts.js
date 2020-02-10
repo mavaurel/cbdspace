@@ -44,7 +44,7 @@ const posts = fs.readdirSync(POSTS_DIR).map(fileName => {
 
   const slug = fileName.split(".")[0];
   const html = marked(content);
-  const category = categories[0].toLowerCase();
+  const category = categories.toLowerCase();
   const readingStats = readingTime(content);
   const printReadingTime = readingStats.text.replace("read", "");
   const printDate = formatDate(new Date(date), "d LLLL");
