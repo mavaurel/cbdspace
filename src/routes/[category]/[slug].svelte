@@ -147,6 +147,7 @@ ul.breadcrumb li:last-child a {
 		</ul>
 	  <div class="post">
 		 {@html post.html}
+		<!-- References Part -->
 		 {#if post.references}
 		 		<h2>References</h2> 
 				<ul class="references">

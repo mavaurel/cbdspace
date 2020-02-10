@@ -80,7 +80,7 @@
 	<div class="container px-4 py-8">
 		<h2 class="title title-large text-primary">Latest Posts</h2>		
 		<div class="posts">
-		  {#each posts as post}
+		  {#each posts.filter(p => !p.featured) as post}
 				<div class="flex-100 mb-6" >
 					<div class="flex">
 					  <div class="flex-4 mr-4 max-w-1/4 self-center">
