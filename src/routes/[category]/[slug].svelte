@@ -46,7 +46,7 @@
 	background-color: transparent;
 	padding: 0;
 }
-.content :global(ul:not(.breadcrumb)) {
+.content :global(ul:not([class])) {
 	line-height: 1.5;
 	@apply list-inside list-disc py-4;
 }
@@ -130,22 +130,36 @@ ul.breadcrumb li:last-child a {
 
 <section class="content">
   <div class="container px-4 py-8">
-	<!-- Schema Breadcrumb -->
-	<ul class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
-		<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-			<a href="{URL}" itemprop="item">
-				<span itemprop="name">Home</span>
-			</a>
-			<meta itemprop="position" content="1">
-		</li>
-		<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-			<a href="{URL}/{post.category}/{post.slug}" itemprop="item">
-				<span itemprop="name">{post.title}</span>
-			</a>
-			<meta itemprop="position" content="2">
-		</li>
-	</ul>
-	  <div class="post">{@html post.html}</div>  
+		<!-- Schema Breadcrumb -->
+		<ul class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+			<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+				<a href="{URL}" itemprop="item">
+					<span itemprop="name">Home</span>
+				</a>
+				<meta itemprop="position" content="1">
+			</li>
+			<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+				<a href="{URL}/{post.category}/{post.slug}" itemprop="item">
+					<span itemprop="name">{post.title}</span>
+				</a>
+				<meta itemprop="position" content="2">
+			</li>
+		</ul>
+	  <div class="post">
+		 {@html post.html}
+		 {#if post.references}
+		 		<h2>References</h2> 
+				<ul class="references">
+				{#each post.references as ref, i}
+					<li>
+					  <span id="note_{i+1}">{i+1}</span>
+						<sup><a class="inner" href="/{post.category}/{post.slug}#ref_{i+1}">&and;</a></sup>
+						<a class="outer" target="_blank" rel="nofollow" href={ref.link}>{ref.name}</a>
+					</li>
+				{/each}
+				</ul>	
+		 {/if}
+		</div>	
 	</div>
 </section>
 

@@ -40,7 +40,16 @@ marked.setOptions({ headerIds: false, renderer });
 const posts = fs.readdirSync(POSTS_DIR).map(fileName => {
   const data = fs.readFileSync(path.join(POSTS_DIR, fileName), "utf8");
   const fileJson = JSON.parse(data);
-  const { title, content, date, categories, featured, image, seo } = fileJson;
+  const {
+    title,
+    content,
+    date,
+    categories,
+    featured,
+    image,
+    seo,
+    references
+  } = fileJson;
 
   const slug = fileName.split(".")[0];
   const html = marked(content);
@@ -53,6 +62,7 @@ const posts = fs.readdirSync(POSTS_DIR).map(fileName => {
     title,
     seo,
     category,
+    references,
     featured,
     image,
     slug,
