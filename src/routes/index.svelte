@@ -12,7 +12,7 @@
 	export let posts;
 	//import { Swipe, SwipeItem } from "../components/Swipe";
 
-	let Swipe;
+  let Swipe;
 	let SwipeItem;
 	
 	onMount(async () => {
@@ -81,25 +81,32 @@
 		<h2 class="title title-large text-primary">Latest Posts</h2>		
 		<div class="posts">
 		  {#each posts.filter(p => !p.featured) as post}
-				<div class="flex-100 mb-6" >
-					<div class="flex">
-					  <div class="flex-4 mr-4 max-w-1/4 self-center">
-						  <a href="{post.category}/{post.slug}" rel=prefetch>
-							  <figure class="image is-square">							
-                  <img src={post.image} alt="">
-						    </figure>
-							</a>						  
-						</div>						
-						<div class="flex flex-col justify-between sm:justify-start">
-							<div class="text-sm text-grey-dark uppercase">{post.category}</div>
-							<a href="{post.category}/{post.slug}" class="title text-black md:text-2xl" rel=prefetch>{@html post.title}</a>
-							<div class="text-sm text-grey-dark">
-								{post.printDate} &middot; {post.printReadingTime}
+					<div class="flex-100 mb-6" >
+						<div class="flex">
+							<div class="flex-4 mr-4 max-w-1/4 self-center">
+								<a href="{post.category}/{post.slug}" rel=prefetch>
+									<figure class="image is-square">							
+										<img src={post.image} alt="">
+									</figure>
+								</a>						  
+							</div>						
+							<div class="flex flex-col justify-between sm:justify-start">
+								<div class="text-sm text-grey-dark uppercase">{post.category}</div>
+								<a href="{post.category}/{post.slug}" class="title text-black md:text-2xl" rel=prefetch>{@html post.title}</a>
+								<div class="text-sm text-grey-dark">
+									{post.printDate} &middot; {post.printReadingTime}
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
 			{/each}
 		</div>
 	</div>
 </section>
+
+<!-- All Posts Links for Export -->
+<ul class="hidden">
+{#each posts as post}
+	<li><a href="{post.category}/{post.slug}"> </a></li>
+{/each}
+</ul>
