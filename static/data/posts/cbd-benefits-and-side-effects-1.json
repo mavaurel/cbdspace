@@ -1,4 +1,10 @@
 {
+  "references": [
+    {
+      "name": "https://www.ncbi.nlm.nih.gov/pubmed/19675519",
+      "link": "https://www.ncbi.nlm.nih.gov/pubmed/19675519"
+    }
+  ],
   "featured": false,
   "date": "2020-02-10T11:34:03.576Z",
   "status": "publish",
