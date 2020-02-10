@@ -79,6 +79,7 @@ ul.breadcrumb li:last-child a {
 		// this file is called [slug].svelte
 		const res = await this.fetch(`${params.category}/${params.slug}.json`);
 		const data = await res.json();
+		console.log(data.title);
 
 		if (res.status === 200) {
 			return { post: data };
@@ -89,7 +90,7 @@ ul.breadcrumb li:last-child a {
 </script>
 
 <script>
-	import { send, receive } from '../../helpers/crossfade.js';
+	// import { send, receive } from '../../helpers/crossfade.js';
 	export let post;
 	const URL = "https://cbdspace.io";
 </script>
