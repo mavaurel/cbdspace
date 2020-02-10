@@ -116,7 +116,7 @@ ul.breadcrumb li:last-child a {
 	<meta property="twitter:image" content="{URL}{post.image}" />
 </svelte:head>
 
-<section class="header" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 50%), url({post.image})">
+<section class="header" style="background-image: 	linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 80%), url({post.image})">
 	<div class="header-inner">
 	  <div class="container px-4 pt-8 pb-12">
 			<div class="text-sm font-bold text-primary uppercase">{post.category}</div>

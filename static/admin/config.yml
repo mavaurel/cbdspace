@@ -32,7 +32,7 @@ collections:
           searchFields: "name",
           valueField: "name",
           displayFields: "name",
-          multiple: true,
+          multiple: false,
         }
       - {
           label: "Tags",
@@ -62,7 +62,13 @@ collections:
       - { label: Image, name: image, widget: image }
       - { label: Snippet, name: snippet, widget: text }
       - { label: Body, name: content, widget: markdown }
-      # hint: "NOTE: If no preview, text for preview will be taken from this text. From first <p>-tag or first 400 symbols.",
+      - label: References
+        name: references
+        widget: list
+        required: false
+        fields:
+          - { label: Name, name: name, widget: string }
+          - { label: Link, name: link, widget: string }
       - {
           label: Seo,
           name: seo,
