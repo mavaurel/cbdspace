@@ -59,8 +59,9 @@ collections:
           options: ["publish", "draft"],
           default: "publish",
         }
-      - { label: "Image", name: "image", widget: image }
-      - { label: "Body", name: "content", widget: "markdown" }
+      - { label: Image, name: image, widget: image }
+      - { label: Snippet, name: snippet, widget: text }
+      - { label: Body, name: "content", widget: markdown" }
       # hint: "NOTE: If no preview, text for preview will be taken from this text. From first <p>-tag or first 400 symbols.",
       - {
           label: Seo,

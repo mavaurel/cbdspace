@@ -50,7 +50,7 @@
 .content :global(li) {
 	margin: 0 0 0.5em 0;
 }
-.content :global(a) {
+.content :global(a.inner) {
 	@apply text-grey-light;
 }
 
