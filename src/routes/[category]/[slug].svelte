@@ -32,6 +32,9 @@
 .content :global(h2) {
 	@apply text-black text-2xl py-4 font-bold;
 }
+.content :global(h3) {
+	@apply text-black text-xl py-2 font-bold;
+}
 .content :global(pre) {
 	background-color: #f9f9f9;
 	box-shadow: inset 1px 1px 5px rgba(0,0,0,0.05);
@@ -62,9 +65,11 @@ ul.breadcrumb li:not(:last-child):after {
 	content: "/";
 	@apply px-2;
 }
+ul.breadcrumb li:not(:last-child) a {
+	@apply text-grey-light;
+}
 ul.breadcrumb li:last-child a {
 	pointer-events: none;
-	@apply text-grey-dark;
 }
 </style>
 
