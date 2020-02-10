@@ -54,7 +54,7 @@
 	margin: 0 0 0.5em 0;
 }
 .content :global(a.inner) {
-	@apply text-grey-light;
+	@apply text-primary;
 }
 
 ul.breadcrumb {
