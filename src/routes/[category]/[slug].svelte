@@ -79,7 +79,6 @@ ul.breadcrumb li:last-child a {
 		// this file is called [slug].svelte
 		const res = await this.fetch(`${params.category}/${params.slug}.json`);
 		const data = await res.json();
-		console.log(data.title);
 
 		if (res.status === 200) {
 			return { post: data };

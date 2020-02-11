@@ -10,8 +10,6 @@ export function get(req, res, next) {
   // this file is called [slug].json.js
   const { slug } = req.params;
 
-  console.log(slug);
-
   if (lookup.has(slug)) {
     res.writeHead(200, {
       "Content-Type": "application/json"

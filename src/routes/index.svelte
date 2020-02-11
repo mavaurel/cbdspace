@@ -10,15 +10,15 @@
 	import { onMount } from 'svelte';
 	import { send, receive } from '../helpers/crossfade.js';
 	export let posts;
-	//import { Swipe, SwipeItem } from "../components/Swipe";
+	import { Swipe, SwipeItem } from "../components/Swipe";
 
-  let Swipe;
-	let SwipeItem;
+  // let Swipe;
+	// let SwipeItem;
 	
-	onMount(async () => {
-		const module = await import("../components/Swipe");
-	  ({Swipe, SwipeItem} = module);
-	});
+	// onMount(async () => {
+	// 	const module = await import("../components/Swipe");
+	//   ({Swipe, SwipeItem} = module);
+	// });
   
 	// Meta tags
 	const URL = "https://cbdspace.io";
@@ -54,9 +54,9 @@
 <section class="featured">
   <div class="container px-4 py-8">
 	  <h2 class="title title-large text-white">Featured Posts</h2>
-		<svelte:component this={Swipe}>
+		<Swipe>
 			{#each posts.filter(p => p.featured) as post}
-					<svelte:component this={SwipeItem} link="{post.category}/{post.slug}">
+					<SwipeItem>
 						<a class="featured-post" href="{post.category}/{post.slug}" rel=prefetch>
 							<figure class="featured-image image overlay">
 								<img src="{post.image}" alt="">
@@ -69,9 +69,9 @@
 								</div>
 							</div>					
 						</a>
-					</svelte:component>
+					</SwipeItem>
 			{/each}
-		</svelte:component>
+		</Swipe>
 	</div>
 </section>
 
