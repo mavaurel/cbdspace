@@ -103,10 +103,3 @@
 		</div>
 	</div>
 </section>
-
-<!-- All Posts Links for Export -->
-<ul class="hidden">
-{#each posts as post}
-	<li><a href="{post.category}/{post.slug}"> </a></li>
-{/each}
-</ul>
