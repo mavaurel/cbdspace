@@ -1,16 +1,15 @@
 <script>
   import { onMount, onDestroy } from 'svelte';
+  //import * as sapper from '@sapper/app';
   import Swipe from './swipe.js';
 
   let windowWidth;
   let swipe;
-  let wrapper;
-  let handler;
+  let selector;
 
   onMount(() => {
     swipe = new Swipe({ 
-      wrapper, 
-      handler,
+      selector,
       availableWidth: windowWidth
     }); 
 
@@ -19,22 +18,22 @@
 		}   
   });
 
-  function resizeHandler(){
+  function resize(){
     swipe.update(windowWidth);
   }
 	
 	function moveStart(e){  
-    swipe.onMoveStart(e);
+    swipe.moveStart(e);
   }
 </script>
 
-<svelte:window on:resize={resizeHandler} bind:innerWidth={windowWidth}/>
+<svelte:window on:resize={resize} bind:innerWidth={windowWidth}/>
 
 <div class="swipe-panel">
-  <div class="swipe-item-wrapper" bind:this={wrapper}>
+  <div class="swipe-item-wrapper" bind:this={selector} on:touchstart={moveStart} on:mousedown={moveStart}>
     <div class="swipeable-items">
       <slot />
     </div>
   </div>
-	<div class="swipe-handler" bind:this={handler} on:touchstart={moveStart} on:mousedown={moveStart}></div>
+	<!-- <div class="swipe-handler" bind:this={handler} on:touchstart={moveStart} on:mousedown={moveStart}></div> -->
 </div>

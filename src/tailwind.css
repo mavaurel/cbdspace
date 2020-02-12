@@ -126,18 +126,19 @@ main {
   /* min-height: 200px;
   min-width: 288px; */
   height: 100%;
+  pointer-events: none;
 
   /* 3:2 Aspect Ratio */
   position: relative;
   padding-top: 66.66%;
-  /* @screen sm {
+
+  @screen sm {
     pointer-events: fill;
-  } */
+  }
 }
 
 .featured-content {
   position: absolute;
-  /* pointer-events: fill; */
   width: 100%;
   left: 0;
   bottom: 0;
