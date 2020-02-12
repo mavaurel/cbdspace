@@ -128,6 +128,7 @@ export default class Swipe {
 
     // detect click event
     if (this.options.diff == this.options.posX) {
+      this.clickHandler(e);
       return;
     }
 
