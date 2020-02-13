@@ -56,8 +56,8 @@
 	  <h2 class="title title-large text-white">Featured Posts</h2>
 		<Swipe>
 			{#each posts.filter(p => p.featured) as post}
-					<SwipeItem link="{post.category}/{post.slug}">
-						<a class="featured-post" href="{post.category}/{post.slug}" rel=prefetch>
+					<SwipeItem link="{post.category}/{post.slug}/">
+						<a class="featured-post" href="{post.category}/{post.slug}/" rel=prefetch>
 							<figure class="featured-image image overlay">
 								<img src="{post.image}" alt="">
 							</figure>
@@ -84,7 +84,7 @@
 					<div class="flex-100 mb-6" >
 						<div class="flex">
 							<div class="flex-4 mr-4 max-w-1/4 self-center">
-								<a href="{post.category}/{post.slug}" rel=prefetch>
+								<a href="{post.category}/{post.slug}/" rel=prefetch>
 									<figure class="image is-square">							
 										<img src={post.image} alt="">
 									</figure>
@@ -92,7 +92,7 @@
 							</div>						
 							<div class="flex flex-col justify-between sm:justify-start">
 								<div class="text-sm text-grey-dark uppercase">{post.category}</div>
-								<a href="{post.category}/{post.slug}" class="title text-black md:text-2xl" rel=prefetch>{@html post.title}</a>
+								<a href="{post.category}/{post.slug}/" class="title text-black md:text-2xl" rel=prefetch>{@html post.title}</a>
 								<div class="text-sm text-grey-dark">
 									{post.printDate} &middot; {post.printReadingTime}
 								</div>
