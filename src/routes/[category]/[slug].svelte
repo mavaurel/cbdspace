@@ -61,6 +61,11 @@ ul.breadcrumb {
 	display: flex;
 	@apply text-sm pb-6;
 }
+
+ul.breadcrumb li {
+	display: inline-flex;
+}
+
 ul.breadcrumb li:not(:last-child):after {
 	content: "/";
 	@apply px-2;
