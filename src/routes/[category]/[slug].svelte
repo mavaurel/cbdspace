@@ -158,9 +158,9 @@ ul.breadcrumb li:last-child a {
 				<ul class="references">
 				{#each post.references as ref, i}
 					<li>
-					  <span id="note_{i+1}">{i+1}</span>
-						<sup><a class="inner" href="/{post.category}/{post.slug}#ref_{i+1}">&and;</a></sup>
+					  <span id="note_{i+1}">{i+1}.</span>					
 						<a class="outer" target="_blank" rel="nofollow" href={ref.link}>{ref.name}</a>
+						<sup><a class="inner" href="/{post.category}/{post.slug}#ref_{i+1}">&uarr;</a></sup>
 					</li>
 				{/each}
 				</ul>	
