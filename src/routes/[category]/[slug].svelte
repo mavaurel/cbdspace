@@ -159,7 +159,7 @@ ul.breadcrumb li:last-child a {
 				{#each post.references as ref, i}
 					<li>
 					  <span id="note_{i+1}">{i+1}.</span>					
-						<a class="outer" target="_blank" rel="nofollow" href={ref.link}>{ref.name}</a>
+						<a class="outer underline" target="_blank" rel="nofollow" href={ref.link}>{ref.name}</a>
 						<sup><a class="inner" href="/{post.category}/{post.slug}#ref_{i+1}">&uarr;</a></sup>
 					</li>
 				{/each}
