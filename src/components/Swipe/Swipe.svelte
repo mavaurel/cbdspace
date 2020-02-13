@@ -7,6 +7,8 @@
   let swipe;
   let selector;
 
+  $: swipe && swipe.update(windowWidth);
+
   onMount(() => {
     swipe = new Swipe({ 
       selector,
@@ -18,16 +20,16 @@
 		}   
   });
 
-  function resize(){
-    swipe.update(windowWidth);
-  }
+  // function resize(){
+  //   swipe.update(windowWidth);
+  // }
 	
 	function moveStart(e){  
     swipe.moveStart(e);
   }
 </script>
 
-<svelte:window on:resize={resize} bind:innerWidth={windowWidth}/>
+<svelte:window bind:innerWidth={windowWidth}/>
 
 <div class="swipe-panel">
   <div class="swipe-item-wrapper" bind:this={selector} on:touchstart={moveStart} on:mousedown={moveStart}>
