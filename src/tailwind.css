@@ -42,8 +42,8 @@ html {
 
 .logo {
   display: flex;
-  max-width: 280px;
-  width: 180px;
+  max-width: 230px;
+  width: 130px;
   align-items: center;
   @screen sm {
     @apply .w-auto;
