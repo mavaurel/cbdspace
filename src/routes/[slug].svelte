@@ -17,7 +17,8 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
+	width: 100%;
+	/* max-width: 768px; */
 }
 .content {
 	position: relative;	
@@ -25,6 +26,7 @@
 	background-color:	#fff;
 	border-radius: 20px 20px 0px 0px;
 	margin-top: -1rem;	
+	line-height: 1.9;
 	@apply .font-secondary;
 	@screen sm {
 		border-radius: unset;
@@ -136,7 +138,7 @@ ul.breadcrumb li:last-child a {
 </section>
 
 <section class="content">
-  <div class="container px-4 py-8">
+  <div class="container lg:max-w-3xl px-4 py-8">
 		<!-- Schema Breadcrumb -->
 		<ul class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
 			<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
