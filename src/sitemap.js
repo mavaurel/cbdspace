@@ -1,5 +1,5 @@
 import fs from "fs";
-import posts from "./routes/[category]/_posts.js";
+import posts from "./routes/_posts.js";
 import { dev } from "@sapper/internal/manifest-server";
 
 const BASE_URL = "https://cbdspace.io";
@@ -22,7 +22,7 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8" ?>
       .map(
         post =>
           `<url>
-          <loc>${BASE_URL}/${post.category}/${post.slug}</loc>
+          <loc>${BASE_URL}/${post.slug}</loc>
           <lastmod>${new Date(post.date).toISOString()}</lastmod>
     </url>`
       )

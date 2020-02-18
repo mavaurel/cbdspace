@@ -82,7 +82,7 @@ ul.breadcrumb li:last-child a {
 	export async function preload({ params, query }) {
 		// the `slug` parameter is available because
 		// this file is called [slug].svelte
-		const res = await this.fetch(`${params.category}/${params.slug}.json`);
+		const res = await this.fetch(`${params.slug}.json`);
 		const data = await res.json();
 
 		if (res.status === 200) {
@@ -105,12 +105,12 @@ ul.breadcrumb li:last-child a {
   <meta name="description" content={post.seo.description}>
   <meta name="keywords" content={post.seo.keywords}>
 	<!-- Open Graph | Facebook-->
-	<meta property="og:title" content="{post.title}| CBD Space Blog" />
-	<meta property="og:type" content="Blog" />
+	<meta property="og:title" content={post.title} />
+	<meta property="og:type" content="article" />
 	<meta property="og:url" content="{URL}/{post.category}/{post.slug}" />
 	<meta property="og:image" content="{URL}{post.image}" />
 	<meta property="og:description" content={post.seo.description}>
-	<meta itemprop="name" content="{post.title}| CBD Space Blog" />
+	<meta itemprop="name" content={post.title} />
 	<meta itemprop="thumbnailUrl" content="{URL}{post.image}" />
 	<meta itemproperty="description" content={post.seo.description}>
 	<!-- Twitter-->
@@ -124,7 +124,7 @@ ul.breadcrumb li:last-child a {
 <section class="header" style="background-image: 	linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 80%), url({post.image})">
 	<div class="header-inner">
 	  <div class="container px-4 pt-8 pb-12">
-			<div class="text-sm font-bold text-primary uppercase">{post.category}</div>
+			<!-- <div class="text-sm font-bold text-primary uppercase">{post.category}</div> -->
 			<h1 class="title text-4xl text-white" >{@html post.title}</h1>
 			<div class="text-sm text-grey-light">
 					{post.printDate} &middot; {post.printReadingTime}
@@ -152,7 +152,7 @@ ul.breadcrumb li:last-child a {
 		</ul>
 	  <div class="post">
 		 {@html post.html}
-		<!-- References Part -->
+		<!-- References -->
 		 {#if post.references}
 		 		<h2>References</h2> 
 				<ul class="references">
