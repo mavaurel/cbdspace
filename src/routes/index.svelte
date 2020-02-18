@@ -90,9 +90,10 @@
 									</figure>
 								</a>						  
 							</div>						
-							<div class="flex flex-col justify-between sm:justify-start">
+							<div class="flex flex-2 flex-col">
 								<!-- <div class="text-sm text-grey-dark uppercase">{post.category}</div> -->
 								<a href="{post.slug}/" class="title text-black md:text-2xl" rel=prefetch>{@html post.title}</a>
+								<div class="hidden lg:block my-4" >{@html post.snippet}</div>
 								<div class="text-sm text-grey-dark">
 									{post.printDate} &middot; {post.printReadingTime}
 								</div>

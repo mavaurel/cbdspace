@@ -31,8 +31,9 @@ html {
 
 .logo {
   display: flex;
-  max-width: 230px;
-  width: 130px;
+  max-width: 280px;
+  width: 180px;
+  align-items: center;
   @screen sm {
     @apply .w-auto;
   }
@@ -118,7 +119,8 @@ main {
 
 .featured {
   @apply .bg-primary;
-  min-height: 35vh;
+  /* height: 35vh; */
+  min-height: 200px;
 }
 
 .featured-post {

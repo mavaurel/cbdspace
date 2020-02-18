@@ -1,9 +1,14 @@
 <script>
 	import Nav from '../components/Nav.svelte';
-  export let segment;
+	import { slide } from "svelte/transition";
+	export let segment;
 </script>
 
-<Nav {segment}/>
+{#if segment === undefined}
+  <div class="nav-transitioned" transition:slide>
+		<Nav />
+	</div>
+{/if}
 
 <main>
 	<slot></slot>

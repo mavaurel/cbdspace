@@ -14,6 +14,11 @@ module.exports = {
       "grey-light": "#c4c1c1",
       "grey-dark": "#797979"
     },
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "1024px"
+    },
     container: {
       center: true
     },

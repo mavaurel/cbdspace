@@ -7,10 +7,10 @@ const [send, receive] = crossfade({
     const transform = style.transform === "none" ? "" : style.transform;
 
     return {
-      duration: 600,
+      duration: 1600,
       easing: quintOut,
       css: t => `
-                transform: ${transform};
+                transform: translateY(${t * 200}px);
                 opacity: ${t}
             `
     };

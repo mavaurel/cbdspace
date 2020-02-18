@@ -1,11 +1,12 @@
-
 <style>
 .header {
   position: relative;
   background-position: center center;
   background-size: cover;
-  background-repeat: no-repeat;
-  min-height: 35vh;
+	background-repeat: no-repeat;	
+	/* min-height: 35vh; */
+	height: 35vh;
+	min-height: 200px;
   /* 1:1 Aspect Ratio on sm screen ( < 640px )*/
   padding-bottom: 100%;
   @screen sm {
@@ -32,6 +33,7 @@
 .content :global(h2) {
 	@apply text-black text-2xl py-4 font-bold;
 }
+
 .content :global(h3) {
 	@apply text-black text-xl py-2 font-bold;
 }
@@ -151,6 +153,7 @@ ul.breadcrumb li:last-child a {
 			</li>
 		</ul>
 	  <div class="post">
+		<!-- <a href="/">Back</a> -->
 		 {@html post.html}
 		<!-- References -->
 		 {#if post.references}
@@ -160,7 +163,7 @@ ul.breadcrumb li:last-child a {
 					<li>
 					  <span id="note_{i+1}">{i+1}.</span>					
 						<a class="outer underline" target="_blank" rel="nofollow" href={ref.link}>{ref.name}</a>
-						<sup><a class="inner" href="/{post.category}/{post.slug}#ref_{i+1}">&uarr;</a></sup>
+						<a class="inner" href="{post.slug}#ref_{i+1}">&uarr;</a>
 					</li>
 				{/each}
 				</ul>	

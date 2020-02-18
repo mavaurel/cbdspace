@@ -48,7 +48,8 @@ const posts = fs.readdirSync(POSTS_DIR).map(fileName => {
     featured,
     image,
     seo,
-    references
+    references,
+    snippet
   } = fileJson;
 
   const slug = fileName.split(".")[0];
@@ -68,6 +69,7 @@ const posts = fs.readdirSync(POSTS_DIR).map(fileName => {
     slug,
     html,
     date,
+    snippet,
     printDate,
     printReadingTime
   };
