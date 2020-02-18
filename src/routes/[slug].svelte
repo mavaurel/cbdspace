@@ -18,7 +18,6 @@
   bottom: 0;
   left: 0;
 	width: 100%;
-	/* max-width: 768px; */
 }
 .content {
 	position: relative;	
