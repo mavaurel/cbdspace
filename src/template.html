@@ -11,7 +11,7 @@
   <link rel='stylesheet' href='global.css'>
   <link rel='manifest' href='manifest.json'>
   <link rel='icon' type='image/png' href='favicon.png'>
-  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap"> -->
+
 
   <!-- Sapper generates a <style> tag containing critical CSS
 	     for the current page. CSS for the rest of the app is
@@ -21,12 +21,22 @@
   <!-- This contains the contents of the <svelte:head> component, if
 	     the current page has one -->
   %sapper.head%
+
 </head>
 
 <body>
   <!-- The application will be rendered inside this element,
 	     because `app/client.js` references it -->
   <div id='app'>%sapper.html%</div>
+
+  <!-- Google Analytics -->
+  <script>
+    window.ga = window.ga || function() {(ga.q = ga.q || []).push(arguments)}; ga.l = +new Date;
+    ga('create', 'UA-158715216-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <!-- End Google Analytics -->
 
   <!-- Sapper creates a <script> tag containing `app/client.js`
 	     and anything else it needs to hydrate the app and
