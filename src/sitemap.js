@@ -22,7 +22,7 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8" ?>
       .map(
         post =>
           `<url>
-          <loc>${BASE_URL}/${post.slug}</loc>
+          <loc>${BASE_URL}/${post.slug}/</loc>
           <lastmod>${new Date(post.date).toISOString()}</lastmod>
     </url>`
       )

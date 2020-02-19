@@ -100,6 +100,7 @@ ul.breadcrumb li:last-child a {
 	// import { send, receive } from '../../helpers/crossfade.js';
 	export let post;
 	const URL = "https://cbdspace.io";
+	const postfix = " | CBD Space Blog";
 </script>
 
 
@@ -108,20 +109,20 @@ ul.breadcrumb li:last-child a {
   <meta name="description" content={post.seo.description}>
   <meta name="keywords" content={post.seo.keywords}>
 	<!-- Open Graph | Facebook-->
-	<meta property="og:title" content={post.title} />
-	<meta property="og:type" content="article" />
-	<meta property="og:url" content="{URL}/{post.category}/{post.slug}" />
-	<meta property="og:image" content="{URL}{post.image}" />
+	<meta property="og:title" content={post.title}>
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="{URL}/{post.slug}/">
+	<meta property="og:image" content="{URL}{post.image}">
 	<meta property="og:description" content={post.seo.description}>
-	<meta itemprop="name" content={post.title} />
-	<meta itemprop="thumbnailUrl" content="{URL}{post.image}" />
+	<meta itemprop="name" content={post.title}>
+	<meta itemprop="thumbnailUrl" content="{URL}{post.image}">
 	<meta itemproperty="description" content={post.seo.description}>
 	<!-- Twitter-->
 	<meta property="twitter:card" content="summary">
-	<meta property="twitter:url" content="{URL}/{post.category}/{post.slug}" />
-	<meta property="twitter:title" content="{post.title}| CBD Space Blog" />
+	<meta property="twitter:url" content="{URL}/{post.slug}/">
+	<meta property="twitter:title" content="{post.title}{postfix}">
 	<meta property="twitter:description" content={post.seo.description}>
-	<meta property="twitter:image" content="{URL}{post.image}" />
+	<meta property="twitter:image" content="{URL}{post.image}">
 </svelte:head>
 
 <section class="header" style="background-image: 	linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 80%), url({post.image})">
@@ -147,7 +148,7 @@ ul.breadcrumb li:last-child a {
 				<meta itemprop="position" content="1">
 			</li>
 			<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-				<a href="{URL}/{post.category}/{post.slug}" itemprop="item">
+				<a href="{URL}/{post.slug}/" itemprop="item">
 					<span itemprop="name">{post.title}</span>
 				</a>
 				<meta itemprop="position" content="2">
