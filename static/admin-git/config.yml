@@ -1,0 +1,195 @@
+# This file is generated automatically — do not edit it!
+backend:
+  # name: git-gateway
+  name: test-repo
+  repo: mavaurel/cbdspace
+  branch: master # Branch to update (optional; defaults to master)
+  extension: json
+# Uncomment below to enable drafts
+# publish_mode: editorial_workflow
+
+media_folder: "static/images" # Media files will be stored in the repo under static/images
+public_folder: "/images"
+
+collections:
+  # Blog posts
+  - name: "blog" # Used in routes, e.g., /admin/collections/blog
+    label: "Posts" # Used in the UI
+    editor:
+      preview: false
+    extension: json
+    folder: "static/data/posts" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "hidden" }
+      - {
+          label: "Categories",
+          name: "categories",
+          widget: "relation", # Relate to data from collection categories
+          collection: "categories",
+          searchFields: "name",
+          valueField: "name",
+          displayFields: "name",
+          multiple: false,
+        }
+      - {
+          label: "Tags",
+          name: "tags",
+          widget: "relation", # Relate to data from collection tags
+          collection: "tags",
+          searchFields: "name",
+          valueField: "name",
+          displayFields: "name",
+          optionsLength: 100,
+          multiple: true,
+          required: false,
+        }
+      - {
+          label: "Featured",
+          name: "featured",
+          widget: "boolean",
+          default: false,
+        }
+      - {
+          label: "Status",
+          name: "status",
+          widget: "select",
+          options: ["publish", "draft"],
+          default: "publish",
+        }
+      - { label: Image, name: image, widget: image }
+      - { label: Snippet, name: snippet, widget: text }
+      - { label: Body, name: content, widget: markdown }
+      - label: References
+        name: references
+        widget: list
+        required: false
+        fields:
+          - { label: Name, name: name, widget: string }
+          - { label: Link, name: link, widget: string }
+      - {
+          label: Seo,
+          name: seo,
+          widget: object,
+          fields:
+            [
+              { label: Title, name: title, widget: string },
+              { label: Description, name: description, widget: text },
+              { label: Keywords, name: keywords, widget: text },
+            ],
+        }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+
+  - name: "settings"
+    editor:
+      preview: false
+    label: "Settings"
+    extension: json
+    files:
+      - file: "static/data/settings/seo.json"
+        label: "Seo"
+        name: "Seo"
+        fields:
+          - { label: "Title", name: "title", default: "CBD Space Blog" }
+          - {
+              label: "Description",
+              name: "description",
+              widget: "string",
+              default: "CBD Space Blog",
+            }
+          # - {
+          #     label: "Favicon",
+          #     name: "favicon",
+          #     widget: "image",
+          #     default: "favicon.ico",
+          #   }
+          - {
+              label: "OG: url",
+              name: "og_url",
+              widget: "string",
+              default: "localhost",
+            }
+          - {
+              label: "OG: image",
+              name: "og_image",
+              widget: "image",
+              default: "favicon.ico",
+            }
+          - {
+              label: "Robots",
+              name: "robots",
+              widget: "select",
+              options: ["index, follow", "noindex, nofollow"],
+            }
+      - file: "static/data/settings/custom.json"
+        label: "Custom code"
+        name: "Custom code"
+        fields:
+          - {
+              label: "Custom code head",
+              name: "header_code",
+              widget: "text",
+              hint: "Add analytics, tracking or custom code to head",
+              required: false,
+            }
+          - {
+              label: "Custom code footer",
+              name: "footer_code",
+              widget: "text",
+              hint: "Add analytics, tracking or custom code to footer",
+              required: false,
+            }
+
+  # Testimonials
+  # - name: "testimonials"
+  #   label: "Testimonials"
+  #   extension: json
+  #   identifier_field: author
+  #   create: true # Allow users to create new documents in this collection
+  #   folder: "static/data/testimonials" # The path to the folder where the documents are stored
+  #   fields:
+  #     - { label: Author, name: author, widget: string }
+  #     - { label: Company, name: company, widget: string, required: false }
+  #     - { label: Avatar, name: avatar, widget: image }
+  #     - { label: Quote, name: quote, widget: text }
+  #     - {
+  #         label: Stars,
+  #         name: stars,
+  #         widget: number,
+  #         min: 1,
+  #         max: 5,
+  #         valueType: "int",
+  #         default: 5,
+  #       }
+  #   editor:
+  #     preview: false
+
+  # Categories
+  - name: "categories"
+    label: "Categories"
+    identifier_field: name
+    create: true # Allow users to create new documents in this collection
+    folder: "static/data/categories" # The path to the folder where the documents are stored
+    slug: "{{fields.slug}}" # Filename template
+    extension: json
+    fields:
+      - { label: Name, name: name, widget: string }
+      - { label: Slug, name: slug, widget: string }
+    editor:
+      preview: false
+
+  # Tags
+  - name: "tags"
+    label: "Tags"
+    identifier_field: name
+    create: true # Allow users to create new documents in this collection
+    folder: "static/data/tags" # The path to the folder where the documents are stored
+    slug: "{{fields.slug}}" # Filename template
+    extension: json
+    fields:
+      - { label: Name, name: name, widget: string }
+      - { label: Slug, name: slug, widget: string }
+    editor:
+      preview: false
