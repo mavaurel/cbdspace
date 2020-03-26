@@ -29,17 +29,10 @@ renderer.link = (href, title, text) => {
   );
 };
 
-// renderer.code = (code, language) => {
-//   const parser = prism.languages[language] || prism.languages.html
-//   const highlighted = prism.highlight(code, parser, language)
-//   return `<pre class="language-${language}"><code class="language-${language}">${highlighted}</code></pre>`
-// }
-
 marked.setOptions({ headerIds: false, renderer });
 
 const posts = fs.readdirSync(POSTS_DIR).map(fileName => {
   const data = fs.readFileSync(path.join(POSTS_DIR, fileName), "utf8");
-  const fileJson = JSON.parse(data);
   const {
     title,
     content,
@@ -50,13 +43,12 @@ const posts = fs.readdirSync(POSTS_DIR).map(fileName => {
     seo,
     references,
     snippet
-  } = fileJson;
+  } = JSON.parse(data);
 
   const slug = fileName.split(".")[0];
   const html = marked(content);
   const category = categories.toLowerCase();
-  const readingStats = readingTime(content);
-  const printReadingTime = readingStats.text.replace("read", "");
+  const printReadingTime = readingTime(content).text.replace("read", "");
   const printDate = formatDate(new Date(date), "d LLLL");
 
   return {

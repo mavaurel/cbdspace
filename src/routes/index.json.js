@@ -1,12 +1,6 @@
 import posts from "./_posts.js";
 
-// snippet: post.snippet,
-// featured: post.featured,
-// printDate: post.printDate,
-// category: post.category,
-// printReadingTime: post.printReadingTime
-
-const contents = JSON.stringify(
+const data = JSON.stringify(
   posts.map(post => {
     return {
       title: post.title,
@@ -26,5 +20,5 @@ export function get(req, res) {
     "Content-Type": "application/json"
   });
 
-  res.end(contents);
+  res.end(data);
 }

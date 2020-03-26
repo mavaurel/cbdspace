@@ -6,7 +6,7 @@ import * as sapper from "@sapper/server";
 // import fs from "fs";
 // import replace from "replace-in-file";
 import "./sitemap.js";
-import "./tailwind.css";
+import "./main.css";
 
 const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === "development";

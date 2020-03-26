@@ -155,10 +155,9 @@ ul.breadcrumb li:last-child a {
 			</li>
 		</ul>
 	  <div class="post">
-		<!-- <a href="/">Back</a> -->
-		 {@html post.html}
-		<!-- References -->
-		 {#if post.references}
+		  {@html post.html}
+			<!-- References -->
+		 	{#if post.references}
 		 		<h2>References</h2> 
 				<ul class="references">
 				{#each post.references as ref, i}
