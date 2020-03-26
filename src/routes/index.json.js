@@ -1,5 +1,11 @@
 import posts from "./_posts.js";
 
+// snippet: post.snippet,
+// featured: post.featured,
+// printDate: post.printDate,
+// category: post.category,
+// printReadingTime: post.printReadingTime
+
 const contents = JSON.stringify(
   posts.map(post => {
     return {

@@ -5,22 +5,12 @@ module.exports = (purgecss = false) => {
     require("tailwindcss")("./tailwind.config.js"),
     require("postcss-nesting")(),
     require("autoprefixer")(),
-    // Do not purge the CSS in dev mode to be able to play with classes in the browser dev-tools.
-    purgecss &&
-      require("@fullhuman/postcss-purgecss")({
-        content: ["./**/*.svelte", "./src/template.html"],
-        extractors: [
-          {
-            extractor: require("purgecss-from-svelte"),
-
-            // Specify the file extensions to include when scanning for
-            // class names.
-            extensions: ["svelte", "html"]
-          }
-        ],
-        // Whitelist selectors to stop Purgecss from removing them from your CSS.
-        whitelist: []
-      }),
+    purgecss && require("@fullhuman/postcss-purgecss")({
+      content: ["./**/*.html", "./**/*.svelte"],
+      whitelist: [],
+      whitelistPatterns: [],
+      defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || [],
+    }),
     purgecss && require("cssnano")
   ].filter(Boolean);
 };

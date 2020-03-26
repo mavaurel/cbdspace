@@ -6,8 +6,8 @@ const {
 module.exports = {
   theme: {
     fontFamily: {
-      sans: ["'Roboto'", "sans-serif"],
-      secondary: ["'Merriweather'", "sans-serif"]
+      sans: ["Roboto", "sans-serif"],
+      secondary: ["Merriweather", "sans-serif"]
     },
     colors: {
       ...defaultColors,
