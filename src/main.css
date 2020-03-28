@@ -3,6 +3,7 @@
 @import "tailwindcss/utilities";
 @import "tailwindcss/screens";
 @import "components/Swipe/swipe.css";
+@import "components/HorizontalScroll/hs.css";
 
 /* 
   Fonts
@@ -44,6 +45,11 @@ p {
   margin-bottom: 1.2em;
 }
 
+ul {
+  padding: 0;
+  margin: 0;
+}
+
 .logo {
   display: flex;
   max-width: 230px;
@@ -78,6 +84,7 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
+  border-radius: 4px;
   background: linear-gradient(180deg,
       rgba(250, 250, 250, 0) 0%,
       rgba(47, 47, 47, 0.5) 50%);

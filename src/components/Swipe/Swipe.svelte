@@ -1,6 +1,5 @@
 <script>
   import { onMount, onDestroy } from 'svelte';
-  //import * as sapper from '@sapper/app';
   import Swipe from './swipe.js';
 
   let windowWidth;
@@ -20,10 +19,6 @@
 		}   
   });
 
-  // function resize(){
-  //   swipe.update(windowWidth);
-  // }
-	
 	function moveStart(e){  
     swipe.moveStart(e);
   }
@@ -31,7 +26,7 @@
 
 <svelte:window bind:innerWidth={windowWidth}/>
 
-<div class="swipe-panel">
+<div class="swipe__wrapper">
   <div class="swipe-item-wrapper" bind:this={selector} on:touchstart={moveStart} on:mousedown={moveStart}>
     <div class="swipeable-items">
       <slot />

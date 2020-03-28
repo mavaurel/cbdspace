@@ -1,6 +1,6 @@
 <script context="module">
 	export function preload({ params, query }) {
-		return this.fetch(`index.json`).then(r => r.json()).then(posts => {
+		return this.fetch("index.json").then(r => r.json()).then(posts => {
 			return { posts };
 		});
 	}
@@ -8,17 +8,9 @@
 
 <script>
 	import { onMount } from 'svelte';
-	// import { send, receive } from '../helpers/crossfade.js';
-	import { Swipe, SwipeItem } from "../components/Swipe";
+	// import { Swipe, SwipeItem } from "../components/Swipe";
+	import { HorizontalScroll, HorizontalScrollItem } from "../components/HorizontalScroll";
 	export let posts;
-
-  // let Swipe;
-	// let SwipeItem;
-
-	// onMount(async () => {
-	// 	const module = await import("../components/Swipe");
-	//   ({Swipe, SwipeItem} = module);
-	// });
   
 	// Meta tags
 	const URL = "https://cbdspace.io";
@@ -38,7 +30,6 @@
 	<meta property="og:url" content={URL}>
 	<meta property="og:image" content={URL}{image}>
 	<meta property="og:description" content={description}>
-
 	<meta itemprop="name" content={title}>
 	<meta itemprop="thumbnailUrl" content={URL}{image}>
 	<meta itemproperty="description" content={description}>
@@ -54,24 +45,23 @@
 <section class="featured">
   <div class="container px-4 py-8">
 	  <h2 class="title title-large text-white">Featured Posts</h2>
-		<Swipe>
+		<HorizontalScroll>
 			{#each posts.filter(p => p.featured) as post}
-					<SwipeItem link="{post.slug}/">
-						<a class="featured-post" href="{post.slug}/" rel=prefetch>
-							<figure class="featured-image image overlay">
-								<img src="{post.image}" alt="">
-							</figure>
-							<div class="featured-content">
-								<!-- <div class="text-sm text-grey-light uppercase">{post.category}</div> -->
-								<div class="title text-base sm:text-xl text-white">{@html post.title}</div>
-								<div class="text-sm text-grey-light">
-									{post.printDate} &middot; {post.printReadingTime}
-								</div>
-							</div>					
-						</a>
-					</SwipeItem>
+				<HorizontalScrollItem link="{post.slug}/">
+					<a href="{post.slug}/" rel=prefetch class="w-full">
+						<div class="hs__item__image__wrapper overlay">
+							<img class="hs__item__image" src="{post.image}" alt="">
+						</div>
+						<div class="hs__item__description">
+							<div class="title text-base sm:text-xl text-white">{@html post.title}</div>
+							<div class="text-sm text-grey-light">
+								{post.printDate} &middot; {post.printReadingTime}
+							</div>
+						</div>
+					</a>
+				</HorizontalScrollItem>
 			{/each}
-		</Swipe>
+		</HorizontalScroll>
 	</div>
 </section>
 

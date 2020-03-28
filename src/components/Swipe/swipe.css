@@ -2,7 +2,7 @@
   @apply .flex .justify-between;
 }
 
-.swipe-panel {
+.swipe__wrapper {
   position: relative;
   overflow: hidden;
   @apply .pl-4 .-mr-4 .-ml-6;
@@ -24,9 +24,11 @@
 
 .swipeable-item {
   @apply .flex-80 .px-2;
+
   @screen sm {
     @apply .flex-2;
   }
+
   @screen lg {
     @apply .flex-3;
   }
