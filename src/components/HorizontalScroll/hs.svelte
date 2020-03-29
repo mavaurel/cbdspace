@@ -29,20 +29,12 @@
     document.removeEventListener("mouseup", endMoveHandler);
   }
 
-  function clickHandler(e){
-    e.stopImmediatePropagation();
-    e.stopPropagation();
-    e.preventDefault();   
-    window.goto(e.target.dataset.link);
-  }
-
   function moveHandler(e){
     mx2 = e.pageX - this.offsetLeft;      
     if (mx) this.scrollLeft = this.sx + mx - mx2;
   }
 
   function startMoveHandler(e){
-    e.preventDefault();
     this.sx = this.scrollLeft;
     mx = e.pageX - this.offsetLeft;
   }
@@ -55,8 +47,13 @@
       clickHandler(e);
     }
     mx = 0;
-    // handle click event
+  }
 
+  function clickHandler(e){
+    e.stopImmediatePropagation();
+    e.stopPropagation();
+    e.preventDefault();   
+    window.goto(e.target.dataset.link);
   }
 </script>
 
