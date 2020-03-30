@@ -12,6 +12,7 @@ module.exports = {
     colors: {
       ...defaultColors,
       primary: "#6d866d",
+      secondary: "#eef5ee",
       black: "#2f2f2f",
       grey: "#4d4d4d",
       "grey-light": "#c4c1c1",
@@ -20,7 +21,8 @@ module.exports = {
     screens: {
       sm: "640px",
       md: "768px",
-      lg: "1024px"
+      lg: "1024px",
+      xl: "1280px"
     },
     container: {
       center: true

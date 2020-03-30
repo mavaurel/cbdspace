@@ -31,31 +31,41 @@ renderer.link = (href, title, text) => {
 
 marked.setOptions({ headerIds: false, renderer });
 
+const templateTooltip = /\[Tooltip\](.*)\[Tooltip\]/g;
+function markedToHtmlTooltip(text){
+  const newText = text.replace(templateTooltip, (match, anchor) => {    
+    return `<span class="tooltip__anchor">${anchor}</span>`;
+  });
+  return newText;
+};
+
 const posts = fs.readdirSync(POSTS_DIR).map(fileName => {
   const data = fs.readFileSync(path.join(POSTS_DIR, fileName), "utf8");
   const {
     title,
     content,
     date,
-    categories,
+    // categories,
     featured,
     image,
     seo,
     references,
-    snippet
+    snippet, 
+    tooltips
   } = JSON.parse(data);
 
-  const slug = fileName.split(".")[0];
-  const html = marked(content);
-  const category = categories.toLowerCase();
+  let html = marked(content);
+  html = markedToHtmlTooltip(html);
+  const slug = fileName.split(".")[0];  
+  //const category = categories.toLowerCase();
   const printReadingTime = readingTime(content).text.replace("read", "");
   const printDate = formatDate(new Date(date), "d LLLL");
 
   return {
     title,
-    seo,
-    category,
+    seo,    
     references,
+    tooltips,
     featured,
     image,
     slug,

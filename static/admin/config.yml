@@ -62,6 +62,13 @@ collections:
       - { label: Image, name: image, widget: image }
       - { label: Snippet, name: snippet, widget: text }
       - { label: Body, name: content, widget: markdown }
+      - label: Tooltips
+        name: tooltips
+        widget: list
+        required: false
+        fields:
+          - { label: Text, name: text, widget: string }
+          - { label: Tip, name: tip, widget: text }
       - label: References
         name: references
         widget: list

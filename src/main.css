@@ -67,10 +67,10 @@ nav {
 }
 
 main {
-  /* position: relative; */
+  position: relative;
   box-sizing: border-box;
-  position: absolute;
-  width: 100%;
+  /* position: absolute; */
+  /* width: 100vw; */
 }
 
 .overlay {
@@ -176,4 +176,58 @@ main {
   top: 0;
   bottom: 0;
   right: 0;
+}
+
+/* 
+  Tooltip
+*/
+
+.tooltip__anchor {
+  @apply bg-secondary rounded border border-gray-400 px-1 cursor-pointer;
+}
+
+.tooltip__text {
+  @apply fixed rounded-lg bg-white rounded-b-none border border-gray-400;
+  @apply font-secondary;
+  @apply px-6 pb-6 pt-8;
+  z-index: 3;
+  line-height: 1.9;
+  min-width: 320px;
+  bottom: 0;
+
+  @screen md {
+    left: 25%;
+    width: 50%;
+  }
+
+  @media screen and (min-width: 1300px) {
+    @apply rounded;
+    bottom: unset;
+    max-width: 340px;
+    width: 240px;
+  }
+}
+
+.tooltip__overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Icons */
+.icon {
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  /* height: 1.5rem;
+  width: 1.5rem; */
+}
+
+.icon-close {
+  content: url('images/icons/close.svg')
 }

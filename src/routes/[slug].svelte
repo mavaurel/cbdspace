@@ -26,7 +26,7 @@
 	border-radius: 20px 20px 0px 0px;
 	margin-top: -1rem;	
 	line-height: 1.9;
-	@apply .font-secondary;
+	@apply font-secondary;
 	@screen sm {
 		border-radius: unset;
   }
@@ -79,6 +79,12 @@ ul.breadcrumb li:not(:last-child) a {
 ul.breadcrumb li:last-child a {
 	pointer-events: none;
 }
+
+.icon-close-position {
+	position: absolute;
+	top: 10px;
+	right: 1rem;
+}
 </style>
 
 <script context="module">
@@ -98,11 +104,47 @@ ul.breadcrumb li:last-child a {
 
 <script>
 	// import { send, receive } from '../../helpers/crossfade.js';
+	import { fade, fly } from "svelte/transition";
+	import { onMount } from "svelte";
 	export let post;
 	const URL = "https://cbdspace.io";
 	const postfix = " | CBD Space Blog";
+
+	// Tooltip
+	let windowWidth;
+	let tooltipAnchors;
+	let tooltipText;
+	let posTop;
+	let posLeft;
+	let isTooltip = false;
+
+	onMount(() => {
+		tooltipAnchors = document.querySelectorAll(".tooltip__anchor");
+		tooltipAnchors.forEach((el, idx) => el.addEventListener("click", (e) => showTooltip(e, idx)));
+
+		return () => {
+			tooltipAnchors.forEach(el => el.removeEventListener("click", showTooltip));
+		}
+	});
+
+	function showTooltip(e,idx){
+		tooltipText = post.tooltips.filter((item, itemIdx) => idx === itemIdx)[0].tip;
+		
+		if (windowWidth >= 1300) {
+			posTop = e.target.getBoundingClientRect().top;
+			posLeft = windowWidth/2 + 736/2 + 20; 
+		}
+		
+		isTooltip = true;
+		
+	}
+
+	function hideTooltip(){
+		isTooltip = false;
+	}
 </script>
 
+<svelte:window on:scroll={hideTooltip} bind:innerWidth={windowWidth}/>
 
 <svelte:head>
 	<title>{post.title}</title>
@@ -173,7 +215,14 @@ ul.breadcrumb li:last-child a {
 	</div>
 </section>
 
+{#if isTooltip}
+	<div class="tooltip__text" in:fly={{x: 100, delay: 350, duration: 300}} out:fly={{duration: 300}} style="top:{posTop}px; left:{posLeft}px">
+		<i class="icon icon-close icon-close-position" on:click={hideTooltip}></i>
+		{tooltipText}
+	</div>
+{/if}
 
-
-
-
+{#if isTooltip && windowWidth < 1300}
+	<div class="tooltip__overlay" in:fade={{duration: 300}} out:fade={{delay: 350, duration: 300}}>
+	</div>
+{/if}
