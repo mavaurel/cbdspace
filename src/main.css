@@ -228,6 +228,7 @@ main {
 .icon-close {
   content: url('images/icons/close.svg');
   width: 1rem;
+  cursor: pointer;
 
   @media screen and (min-width: 1380px) {
     width: 10px;

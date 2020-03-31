@@ -32,11 +32,11 @@
   }
 }
 .content :global(h2) {
-	@apply text-black text-2xl py-4 font-bold;
+	@apply text-black text-2xl py-4 font-bold leading-normal;
 }
 
 .content :global(h3) {
-	@apply text-black text-xl py-2 font-bold;
+	@apply text-black text-xl py-2 font-bold leading-normal;
 }
 .content :global(pre) {
 	background-color: #f9f9f9;
@@ -115,13 +115,15 @@ ul.breadcrumb li:last-child a {
 	let tooltipText;
 	let posTop;
 	let posLeft;
-	let transitionOptions;
 	let isTooltip = false;
+	// Tooltip animation
+	let transitionIn;
+	let duration = 200;
 
 	$: if (windowWidth < desktop) {
-		transitionOptions = {y: 25, delay: 350, duration: 300};
+		transitionIn = {y: 25, delay: duration, duration};
 	} else {
-		transitionOptions = {x: 25, delay: 350, duration: 300};
+		transitionIn = {x: 25, duration};
 	}
 
 	onMount(() => {
@@ -138,7 +140,7 @@ ul.breadcrumb li:last-child a {
 		
 		if (windowWidth >= desktop) {
 			posTop = e.target.getBoundingClientRect().top;
-			posLeft = windowWidth/2 + 736/2; 
+			posLeft = windowWidth/2 + 736/2; // 736 - container width
 		}
 		
 		isTooltip = true;		
@@ -221,13 +223,13 @@ ul.breadcrumb li:last-child a {
 </section>
 
 {#if isTooltip}
-	<div class="tooltip__text" in:fly={transitionOptions} out:fly={{duration: 300}} style="top:{posTop}px; left:{posLeft}px">
+	<div class="tooltip__text" in:fly={transitionIn} out:fly={{duration}} style="top:{posTop}px; left:{posLeft}px">
 		<i class="icon icon-close icon-close-position" on:click={hideTooltip}></i>
 		{tooltipText}
 	</div>
 {/if}
 
 {#if isTooltip && windowWidth < desktop}
-	<div class="tooltip__overlay" in:fade={{duration: 300}} out:fade={{delay: 350, duration: 300}} on:click={hideTooltip}>
+	<div class="tooltip__overlay" in:fade={{duration}} out:fade={{delay: duration, duration: duration}} on:click={hideTooltip}>
 	</div>
 {/if}
