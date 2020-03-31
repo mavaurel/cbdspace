@@ -82,15 +82,13 @@ ul.breadcrumb li:last-child a {
 
 .icon-close-position {
 	position: absolute;
-	top: 10px;
-	right: 1rem;
+	top: 6px;
+	right: 6px;
 }
 </style>
 
 <script context="module">
 	export async function preload({ params, query }) {
-		// the `slug` parameter is available because
-		// this file is called [slug].svelte
 		const res = await this.fetch(`${params.slug}.json`);
 		const data = await res.json();
 
@@ -111,12 +109,20 @@ ul.breadcrumb li:last-child a {
 	const postfix = " | CBD Space Blog";
 
 	// Tooltip
+	let desktop = 1380;
 	let windowWidth;
 	let tooltipAnchors;
 	let tooltipText;
 	let posTop;
 	let posLeft;
+	let transitionOptions;
 	let isTooltip = false;
+
+	$: if (windowWidth < desktop) {
+		transitionOptions = {y: 25, delay: 350, duration: 300};
+	} else {
+		transitionOptions = {x: 25, delay: 350, duration: 300};
+	}
 
 	onMount(() => {
 		tooltipAnchors = document.querySelectorAll(".tooltip__anchor");
@@ -130,13 +136,12 @@ ul.breadcrumb li:last-child a {
 	function showTooltip(e,idx){
 		tooltipText = post.tooltips.filter((item, itemIdx) => idx === itemIdx)[0].tip;
 		
-		if (windowWidth >= 1300) {
+		if (windowWidth >= desktop) {
 			posTop = e.target.getBoundingClientRect().top;
-			posLeft = windowWidth/2 + 736/2 + 20; 
+			posLeft = windowWidth/2 + 736/2; 
 		}
 		
-		isTooltip = true;
-		
+		isTooltip = true;		
 	}
 
 	function hideTooltip(){
@@ -216,13 +221,13 @@ ul.breadcrumb li:last-child a {
 </section>
 
 {#if isTooltip}
-	<div class="tooltip__text" in:fly={{x: 100, delay: 350, duration: 300}} out:fly={{duration: 300}} style="top:{posTop}px; left:{posLeft}px">
+	<div class="tooltip__text" in:fly={transitionOptions} out:fly={{duration: 300}} style="top:{posTop}px; left:{posLeft}px">
 		<i class="icon icon-close icon-close-position" on:click={hideTooltip}></i>
 		{tooltipText}
 	</div>
 {/if}
 
-{#if isTooltip && windowWidth < 1300}
-	<div class="tooltip__overlay" in:fade={{duration: 300}} out:fade={{delay: 350, duration: 300}}>
+{#if isTooltip && windowWidth < desktop}
+	<div class="tooltip__overlay" in:fade={{duration: 300}} out:fade={{delay: 350, duration: 300}} on:click={hideTooltip}>
 	</div>
 {/if}

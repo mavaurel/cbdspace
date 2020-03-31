@@ -188,8 +188,7 @@ main {
 
 .tooltip__text {
   @apply fixed rounded-lg bg-white rounded-b-none border border-gray-400;
-  @apply font-secondary;
-  @apply px-6 pb-6 pt-8;
+  @apply font-secondary text-base p-6;
   z-index: 3;
   line-height: 1.9;
   min-width: 320px;
@@ -200,8 +199,8 @@ main {
     width: 50%;
   }
 
-  @media screen and (min-width: 1300px) {
-    @apply rounded;
+  @media screen and (min-width: 1380px) {
+    @apply text-sm p-4 rounded;
     bottom: unset;
     max-width: 340px;
     width: 240px;
@@ -216,7 +215,7 @@ main {
   right: 0;
   background: rgba(0, 0, 0, 0.7);
   z-index: 2;
-  pointer-events: none;
+  /* pointer-events: none; */
 }
 
 /* Icons */
@@ -224,10 +223,13 @@ main {
   align-items: center;
   display: inline-flex;
   justify-content: center;
-  /* height: 1.5rem;
-  width: 1.5rem; */
 }
 
 .icon-close {
-  content: url('images/icons/close.svg')
+  content: url('images/icons/close.svg');
+  width: 1rem;
+
+  @media screen and (min-width: 1380px) {
+    width: 10px;
+  }
 }
