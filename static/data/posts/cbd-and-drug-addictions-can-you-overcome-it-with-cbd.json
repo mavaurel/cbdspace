@@ -11,6 +11,10 @@
       "tip": "Type of chemical messenger, that transmitts signals between nerve cells."
     },
     {
+      "text": "cues",
+      "tip": "Something that leadS to smoke a cigarette\\having another dose of another drug."
+    },
+    {
       "text": "tolerance",
       "tip": "Phenomenon, that happens when one is using a lot of a certain drug, so the effect reduces in time."
     },
