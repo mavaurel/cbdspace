@@ -50,7 +50,7 @@
 				<HorizontalScrollItem link="{post.slug}/">
 					<a href="{post.slug}/" rel=prefetch class="w-full">
 						<div class="hs__item__image__wrapper overlay">
-							<img class="hs__item__image" src="{post.image}" alt="">
+							<img class="hs__item__image" src="{post.thumbnail}" alt="">
 						</div>
 						<div class="hs__item__description">
 							<div class="title text-base sm:text-xl text-white">{@html post.title}</div>
@@ -76,7 +76,7 @@
 							<div class="flex-4 mr-4 max-w-1/4 self-center">
 								<a href="{post.slug}/" rel=prefetch>
 									<figure class="image is-square">							
-										<img src={post.image} alt="">
+										<img src={post.thumbnail} alt="">
 									</figure>
 								</a>						  
 							</div>						

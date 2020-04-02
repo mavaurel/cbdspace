@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "sapper dev",
     "build": "sapper build --legacy",
-    "export": "sapper export --legacy",
+    "export": "node scripts/thumb && sapper export --legacy",
     "start": "node __sapper__/build",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
@@ -31,6 +31,7 @@
     "date-fns": "^2.9.0",
     "eslint-plugin-svelte3": "^2.7.3",
     "eslit": "^6.0.0",
+    "image-thumbnail": "^1.0.7",
     "marked": "^0.8.0",
     "postcss": "^7.0.16",
     "postcss-import": "^12.0.1",

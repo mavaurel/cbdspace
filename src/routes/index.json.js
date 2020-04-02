@@ -6,6 +6,7 @@ const data = JSON.stringify(
       title: post.title,
       slug: post.slug,
       image: post.image,
+      thumbnail: post.thumbnail,
       snippet: post.snippet,
       featured: post.featured,
       printDate: post.printDate,

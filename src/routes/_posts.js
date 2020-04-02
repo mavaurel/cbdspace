@@ -60,6 +60,7 @@ const posts = fs.readdirSync(POSTS_DIR).map(fileName => {
   //const category = categories.toLowerCase();
   const printReadingTime = readingTime(content).text.replace("read", "");
   const printDate = formatDate(new Date(date), "d LLLL");
+  const thumbnail = image.replace("/images/", "images/thumbs/__thumb-");
 
   return {
     title,
@@ -68,6 +69,7 @@ const posts = fs.readdirSync(POSTS_DIR).map(fileName => {
     tooltips,
     featured,
     image,
+    thumbnail,
     slug,
     html,
     date,
