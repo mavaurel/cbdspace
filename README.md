@@ -2,4 +2,4 @@
 
 
 # cbdspace
-for cbdspace blog
+for cbdspace blogs
