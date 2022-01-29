@@ -31,7 +31,7 @@ collections:
           collection: "categories",
           searchFields: "name",
           valueField: "name",
-          displayFields: "name",
+          displayFields: ["name"],
           multiple: false,
         }
       - {
@@ -41,7 +41,7 @@ collections:
           collection: "tags",
           searchFields: "name",
           valueField: "name",
-          displayFields: "name",
+          displayFields: ["name"],
           optionsLength: 100,
           multiple: true,
           required: false,
